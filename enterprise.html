@@ -1,0 +1,2260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Paket Enterprise - Template Website Klinik Gigi Modern dengan Reservasi Online, Dashboard Laporan, dan AI Chatbot Assistant.">
+    <title>Klinik Gigi Premium - Paket Enterprise Wireframe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           ENTERPRISE HIGH-FIDELITY WIREFRAME SYSTEM
+           ============================================ */
+        :root {
+            --bg-canvas: #F9FAFB;
+            --bg-surface: #FFFFFF;
+            --border-default: #E5E7EB;
+            --border-strong: #9CA3AF;
+            --border-accent: #F97316; /* Enterprise Orange Accent */
+            --bg-accent-light: rgba(249, 115, 22, 0.06);
+            --text-primary: #111827;
+            --text-secondary: #4B5563;
+            --text-light: #9CA3AF;
+            --placeholder-gray: #F3F4F6;
+            --placeholder-cross: #D1D5DB;
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --container-max: 1200px;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+            --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-canvas);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* View Mode Switcher Header (Top Bar) */
+        .view-switcher-bar {
+            background-color: var(--text-primary);
+            color: white;
+            padding: 12px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--border-accent);
+        }
+
+        .switcher-title {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .switcher-title span {
+            color: var(--border-accent);
+        }
+
+        .switcher-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .switch-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 6px 14px;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            font-family: var(--font-main);
+        }
+
+        .switch-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .switch-btn.active {
+            background: var(--border-accent);
+            border-color: var(--border-accent);
+            color: white;
+        }
+
+        /* Modern Hi-Fi Wireframe Helper Styles */
+        .wire-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: var(--bg-accent-light);
+            color: var(--border-accent);
+            border: 1px dashed var(--border-accent);
+        }
+
+        .wire-tag {
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            border: 1px solid var(--border-default);
+            padding: 2px 6px;
+            border-radius: 4px;
+            background-color: var(--bg-canvas);
+        }
+
+        .wire-img {
+            background-color: var(--placeholder-gray);
+            border: 2px dashed var(--border-strong);
+            border-radius: var(--radius-md);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .wire-img::before, .wire-img::after {
+            content: '';
+            position: absolute;
+            background-color: var(--placeholder-cross);
+        }
+
+        .wire-img::before {
+            width: 150%;
+            height: 1px;
+            transform: rotate(35deg);
+        }
+
+        .wire-img::after {
+            width: 150%;
+            height: 1px;
+            transform: rotate(-35deg);
+        }
+
+        .wire-img span {
+            position: relative;
+            z-index: 2;
+            background: var(--bg-canvas);
+            padding: 6px 16px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-default);
+            font-size: 12px;
+        }
+
+        /* Views management */
+        .view-content {
+            display: none;
+        }
+
+        .view-content.active {
+            display: block;
+        }
+
+        /* Button elements */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: var(--radius-md);
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            font-family: var(--font-main);
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background-color: var(--text-primary);
+            color: white;
+            border-color: var(--text-primary);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--text-primary);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-primary);
+            border-color: var(--border-strong);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--text-primary);
+            color: white;
+            border-color: var(--text-primary);
+        }
+
+        .btn-accent {
+            background-color: var(--border-accent);
+            color: white;
+            border-color: var(--border-accent);
+        }
+
+        .btn-accent:hover {
+            background-color: transparent;
+            color: var(--border-accent);
+        }
+
+        .btn-sm {
+            padding: 8px 16px;
+            font-size: 12px;
+        }
+
+        /* ============================================
+           VIEW 1: PATIENT SIDE (LANDING PAGE)
+           ============================================ */
+        .main-header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border-default);
+            position: sticky;
+            top: 50px;
+            z-index: 99;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .main-header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .logo-symbol {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--text-primary);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 800;
+            background-color: var(--placeholder-gray);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 16px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-subtitle {
+            font-size: 10px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 600;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+            transition: var(--transition-smooth);
+        }
+
+        .main-nav a:hover, .main-nav a.active {
+            color: var(--text-primary);
+            border-bottom-color: var(--text-primary);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background-color: var(--text-primary);
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 80px 0;
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border-default);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 24px;
+        }
+
+        .rating-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            background: var(--placeholder-gray);
+            padding: 6px 14px;
+            border-radius: 30px;
+        }
+
+        .rating-stars {
+            color: #F59E0B;
+        }
+
+        .hero-content h1 {
+            font-size: 46px;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -1.5px;
+        }
+
+        .hero-content h1 span {
+            border-bottom: 4px solid var(--border-accent);
+        }
+
+        .hero-content p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 520px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-img-box {
+            width: 100%;
+            height: 420px;
+        }
+
+        /* Sections General */
+        .section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border-default);
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 56px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-heading h2 {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .section-heading p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            max-width: 500px;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .service-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--border-strong);
+        }
+
+        .service-header {
+            margin-bottom: 24px;
+        }
+
+        .service-icon {
+            width: 52px;
+            height: 52px;
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-md);
+            background: var(--placeholder-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .service-footer {
+            border-top: 1px solid var(--border-default);
+            padding-top: 20px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .service-price {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-label {
+            font-size: 10px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .price-value {
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        /* Facility Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-card {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid var(--border-default);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .gallery-card:hover {
+            border-color: var(--text-primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 240px;
+            border-radius: 0;
+            border: none;
+        }
+
+        .gallery-info {
+            padding: 14px;
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border-default);
+            font-size: 12px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Reservation Step-by-Step Box */
+        .res-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 64px;
+            align-items: start;
+        }
+
+        .res-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .flow-step {
+            display: flex;
+            gap: 20px;
+        }
+
+        .step-indicator {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            background-color: var(--bg-surface);
+        }
+
+        .flow-step.active .step-indicator {
+            background-color: var(--border-accent);
+            border-color: var(--border-accent);
+            color: white;
+        }
+
+        .step-body h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .step-body p {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .res-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .res-card h3 {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .res-card .res-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            font-family: var(--font-main);
+            transition: var(--transition-smooth);
+            background-color: var(--bg-canvas);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--text-primary);
+            background-color: var(--bg-surface);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        /* Doctors Grid */
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .doctor-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: var(--transition-smooth);
+            text-align: center;
+        }
+
+        .doctor-card:hover {
+            border-color: var(--border-strong);
+            transform: translateY(-4px);
+        }
+
+        .doc-img {
+            height: 240px;
+            border-radius: 0;
+            border: none;
+        }
+
+        .doc-info {
+            padding: 24px 16px;
+        }
+
+        .doc-info h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .doc-spec {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .doc-schedule {
+            font-size: 11px;
+            border: 1px dashed var(--border-default);
+            padding: 6px 12px;
+            border-radius: var(--radius-sm);
+            background: var(--placeholder-gray);
+            display: inline-block;
+        }
+
+        /* Testimonials */
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .testi-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            position: relative;
+        }
+
+        .quote-icon {
+            font-size: 32px;
+            color: var(--placeholder-cross);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .testi-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .testi-user {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testi-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--placeholder-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            border: 1px solid var(--border-default);
+        }
+
+        .testi-name {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .testi-stars {
+            font-size: 12px;
+            color: #F59E0B;
+            margin-top: 2px;
+        }
+
+        /* Contact Details */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+        }
+
+        .info-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .info-card {
+            display: flex;
+            gap: 16px;
+            padding: 20px;
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-md);
+            background-color: var(--bg-surface);
+        }
+
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--placeholder-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .info-desc strong {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+
+        .info-desc span {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .social-row {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-icon-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid var(--border-strong);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-size: 12px;
+            font-weight: 700;
+            transition: var(--transition-smooth);
+            background-color: var(--bg-surface);
+        }
+
+        .social-icon-btn:hover {
+            background-color: var(--text-primary);
+            color: white;
+            border-color: var(--text-primary);
+        }
+
+        /* Footer */
+        .main-footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border-default);
+            padding: 60px 0 30px;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-about p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin: 16px 0;
+            max-width: 320px;
+        }
+
+        .footer-links-col h4 {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            border-bottom: 1px dashed var(--border-default);
+            padding-bottom: 8px;
+        }
+
+        .footer-links-col ul {
+            list-style: none;
+        }
+
+        .footer-links-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links-col ul li a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 13px;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-links-col ul li a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-default);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        /* ============================================
+           VIEW 2: ENTERPRISE ADMIN DASHBOARD
+           ============================================ */
+        .dashboard-wrapper {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            min-height: calc(100vh - 50px);
+            background-color: var(--bg-canvas);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: var(--bg-surface);
+            border-right: 1px solid var(--border-default);
+            padding: 30px 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .sidebar-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 600;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+        }
+
+        .sidebar-item:hover, .sidebar-item.active {
+            background-color: var(--placeholder-gray);
+            color: var(--text-primary);
+        }
+
+        .sidebar-item.active {
+            border-left: 3px solid var(--border-accent);
+        }
+
+        .admin-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-default);
+        }
+
+        .admin-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background-color: var(--placeholder-gray);
+            border: 1px solid var(--border-default);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 12px;
+        }
+
+        .admin-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .admin-name {
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .admin-role {
+            font-size: 10px;
+            color: var(--text-light);
+            text-transform: uppercase;
+        }
+
+        /* Dashboard Content Area */
+        .dashboard-body {
+            padding: 40px;
+        }
+
+        .db-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .db-title h2 {
+            font-size: 26px;
+            font-weight: 800;
+        }
+
+        .db-title p {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        /* Metric Widgets */
+        .metrics-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        .metric-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-md);
+            padding: 24px;
+        }
+
+        .metric-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .metric-value {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .metric-trend {
+            font-size: 11px;
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .trend-up { color: #10B981; }
+        .trend-down { color: #EF4444; }
+
+        /* Report & Realtime Status Layout */
+        .report-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 28px;
+            margin-bottom: 32px;
+        }
+
+        .db-box {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+        }
+
+        .db-box-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Simple CSS Line Chart Mockup */
+        .chart-mockup {
+            height: 220px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            padding-top: 20px;
+            position: relative;
+        }
+
+        .chart-y-axis {
+            position: absolute;
+            left: 0;
+            top: 20px;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-size: 10px;
+            color: var(--text-light);
+        }
+
+        .chart-bars {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            align-items: flex-end;
+            justify-content: space-around;
+            padding-left: 30px;
+            border-bottom: 1px solid var(--border-strong);
+            border-left: 1px solid var(--border-strong);
+        }
+
+        .chart-bar-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            width: 40px;
+        }
+
+        .chart-bar-fill {
+            width: 16px;
+            background: var(--text-primary);
+            border-radius: 4px 4px 0 0;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .chart-bar-fill.accent {
+            background: var(--border-accent);
+        }
+
+        .chart-bar-label {
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .chart-value-tag {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 9px;
+            font-weight: 700;
+            background: var(--text-primary);
+            color: white;
+            padding: 2px 4px;
+            border-radius: 2px;
+        }
+
+        /* Reservations Log Table */
+        .res-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+
+        .res-table th, .res-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-default);
+        }
+
+        .res-table th {
+            font-weight: 700;
+            color: var(--text-secondary);
+            background-color: var(--placeholder-gray);
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 9px;
+            text-transform: uppercase;
+        }
+
+        .status-wa-pending { background: #FEF3C7; color: #D97706; }
+        .status-wa-sent { background: #D1FAE5; color: #059669; }
+
+        /* Multi-Admin Management Panel */
+        .multi-admin-panel {
+            margin-top: 32px;
+        }
+
+        .admin-roles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 16px;
+        }
+
+        .role-box {
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            background: var(--bg-surface);
+        }
+
+        .role-box-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .role-title {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .role-badge {
+            font-size: 9px;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: var(--placeholder-gray);
+            border: 1px solid var(--border-default);
+        }
+
+        .role-permissions {
+            list-style: none;
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .role-permissions li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .role-permissions li::before {
+            content: '✓';
+            color: #10B981;
+            font-weight: 700;
+        }
+
+        /* ============================================
+           INTERACTIVE AI ASSISTANT / CHATBOT WIDGET
+           ============================================ */
+        .chat-widget-trigger {
+            position: fixed;
+            bottom: 30px;
+            right: 170px;
+            z-index: 1000;
+            background-color: var(--text-primary);
+            color: white;
+            border: 2px solid var(--border-accent);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition-smooth);
+        }
+
+        .chat-widget-trigger:hover {
+            transform: scale(1.05);
+            background-color: var(--border-accent);
+        }
+
+        .chat-badge-pulse {
+            width: 8px;
+            height: 8px;
+            background-color: #10B981;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .chat-badge-pulse::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background-color: #10B981;
+            animation: pulse-ring 1.5s infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(2.5); opacity: 0; }
+        }
+
+        .chat-window {
+            position: fixed;
+            bottom: 90px;
+            right: 40px;
+            width: 360px;
+            height: 480px;
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-strong);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .chat-window.open {
+            display: flex;
+        }
+
+        .chat-header {
+            background-color: var(--text-primary);
+            color: white;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid var(--border-accent);
+        }
+
+        .chat-header-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chat-bot-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: var(--border-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .chat-header-title {
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .chat-header-status {
+            font-size: 10px;
+            color: var(--text-light);
+        }
+
+        .chat-close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 16px;
+            overflow-y: auto;
+            background-color: var(--bg-canvas);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .msg-bubble {
+            max-width: 80%;
+            padding: 10px 14px;
+            border-radius: var(--radius-md);
+            font-size: 12.5px;
+            line-height: 1.5;
+        }
+
+        .msg-bot {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-default);
+            align-self: flex-start;
+            border-top-left-radius: 0;
+        }
+
+        .msg-user {
+            background-color: var(--text-primary);
+            color: white;
+            align-self: flex-end;
+            border-top-right-radius: 0;
+        }
+
+        .chat-suggested {
+            padding: 10px 16px;
+            background-color: var(--bg-surface);
+            border-top: 1px solid var(--border-default);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .suggest-btn {
+            background-color: var(--placeholder-gray);
+            border: 1px solid var(--border-default);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            font-family: var(--font-main);
+        }
+
+        .suggest-btn:hover {
+            background-color: var(--text-primary);
+            color: white;
+            border-color: var(--text-primary);
+        }
+
+        .chat-input-area {
+            padding: 12px 16px;
+            background-color: var(--bg-surface);
+            border-top: 1px solid var(--border-default);
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input {
+            flex: 1;
+            border: 1px solid var(--border-default);
+            padding: 8px 14px;
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            font-family: var(--font-main);
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--text-primary);
+        }
+
+        .chat-send-btn {
+            background-color: var(--text-primary);
+            color: white;
+            border: none;
+            padding: 0 16px;
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .chat-send-btn:hover {
+            background-color: var(--border-accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+            .hero-img-box { height: 300px; order: -1; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .res-grid { grid-template-columns: 1fr; gap: 40px; }
+            .doctors-grid { grid-template-columns: repeat(2, 1fr); }
+            .testi-grid { grid-template-columns: 1fr; }
+            .contact-layout { grid-template-columns: 1fr; }
+            .dashboard-wrapper { grid-template-columns: 1fr; }
+            .sidebar { display: none; }
+            .metrics-row { grid-template-columns: repeat(2, 1fr); }
+            .report-grid { grid-template-columns: 1fr; }
+            .admin-roles-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .main-nav { display: none; }
+            .hamburger { display: flex; }
+            .hero-content h1 { font-size: 34px; }
+            .services-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .doctors-grid { grid-template-columns: 1fr; }
+            .footer-top { grid-template-columns: 1fr; }
+            .chat-widget-trigger { right: 24px; bottom: 24px; }
+            .chat-window { right: 24px; bottom: 84px; width: calc(100% - 48px); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============ VIEW SWITCHER HEADER ============ -->
+    <div class="view-switcher-bar">
+        <div class="switcher-title">
+            🏥 PAKET ENTERPRISE <span>REKOMENDASI TERBAIK</span>
+        </div>
+        <div class="switcher-buttons">
+            <button class="switch-btn active" id="btn-patient-view" onclick="switchView('patient')">🎯 Tampilan Pengunjung</button>
+            <button class="switch-btn" id="btn-admin-view" onclick="switchView('admin')">📊 Dashboard Laporan (Admin)</button>
+        </div>
+    </div>
+
+    <!-- =========================================================
+         VIEW 1: PATIENT SIDE (LANDING PAGE)
+         ========================================================= -->
+    <div id="patient-view" class="view-content active">
+        <!-- Main Navigation -->
+        <header class="main-header">
+            <div class="container">
+                <a href="#" class="logo-area">
+                    <div class="logo-symbol">🦷</div>
+                    <div class="logo-text">
+                        <span class="logo-title">DentCare Enterprise</span>
+                        <span class="logo-subtitle">Modern Dental Clinic</span>
+                    </div>
+                </a>
+                <nav class="main-nav">
+                    <a href="#hero" class="active">Beranda</a>
+                    <a href="#layanan">Layanan</a>
+                    <a href="#galeri">Fasilitas</a>
+                    <a href="#dokter">Dokter</a>
+                    <a href="#testimoni">Testimoni</a>
+                    <a href="#kontak">Hubungi Kami</a>
+                    <a href="#reservasi" class="btn btn-primary btn-sm" style="color: white;">Reservasi Online</a>
+                </nav>
+                <button class="hamburger">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero-section" id="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <div class="rating-box">
+                            <span class="rating-stars">★★★★★</span> 4.9/5 (1,200+ Ulasan Pasien)
+                        </div>
+                        <h1>Klinik Gigi Modern &amp; <span>Profesional</span> untuk Anda</h1>
+                        <p>Dapatkan perawatan gigi berstandar tinggi dengan teknologi mutakhir dan dokter ahli. Dilengkapi sistem reservasi instan &amp; asisten chatbot 24 jam.</p>
+                        <div class="hero-actions">
+                            <a href="#reservasi" class="btn btn-primary">Booking Jadwal Sekarang</a>
+                            <a href="#layanan" class="btn btn-outline">Lihat Estimasi Biaya</a>
+                        </div>
+                    </div>
+                    <div class="hero-img-box wire-img">
+                        <span>Banner Utama / Foto Klinik Gigi (560×420)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Layanan Section -->
+        <section class="section" id="layanan">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="wire-badge">Katalog Layanan</span>
+                    <h2>Daftar Layanan &amp; Estimasi Biaya</h2>
+                    <p>Pilih dari berbagai opsi perawatan spesialis kami dengan transparansi biaya.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-header">
+                            <div class="service-icon">✨</div>
+                            <h3>Scaling &amp; Pembersihan Karang</h3>
+                            <p>Membersihkan plak, noda gigi, dan karang gigi secara menyeluruh untuk kesehatan gusi.</p>
+                        </div>
+                        <div class="service-footer">
+                            <div class="service-price">
+                                <span class="price-label">Estimasi Biaya</span>
+                                <span class="price-value">Rp 250.000</span>
+                            </div>
+                            <a href="#reservasi" class="btn btn-outline btn-sm">Reservasi</a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-header">
+                            <div class="service-icon">🦷</div>
+                            <h3>Tambal Gigi Estetis</h3>
+                            <p>Menggunakan bahan komposit berkualitas tinggi yang sewarna dengan gigi asli Anda.</p>
+                        </div>
+                        <div class="service-footer">
+                            <div class="service-price">
+                                <span class="price-label">Estimasi Biaya</span>
+                                <span class="price-value">Rp 350.000</span>
+                            </div>
+                            <a href="#reservasi" class="btn btn-outline btn-sm">Reservasi</a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-header">
+                            <div class="service-icon">💎</div>
+                            <h3>Pemasangan Behel Gigi</h3>
+                            <p>Perawatan ortodonti untuk merapikan susunan gigi dengan pilihan behel logam atau keramik.</p>
+                        </div>
+                        <div class="service-footer">
+                            <div class="service-price">
+                                <span class="price-label">Estimasi Biaya</span>
+                                <span class="price-value">Rp 5.500.000</span>
+                            </div>
+                            <a href="#reservasi" class="btn btn-outline btn-sm">Reservasi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galeri Fasilitas -->
+        <section class="section" id="galeri">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="wire-badge">Galeri</span>
+                    <h2>Fasilitas &amp; Ruang Praktik</h2>
+                    <p>Klinik steril dan nyaman demi keamanan dan ketenangan selama perawatan.</p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-card">
+                        <div class="gallery-img wire-img"><span>Foto Dental Chair 1</span></div>
+                        <div class="gallery-info">Ruang Perawatan Utama</div>
+                    </div>
+                    <div class="gallery-card">
+                        <div class="gallery-img wire-img"><span>Ruang Sterilisasi Alat</span></div>
+                        <div class="gallery-info">Unit Sterilisasi Modern</div>
+                    </div>
+                    <div class="gallery-card">
+                        <div class="gallery-img wire-img"><span>Ruang Tunggu Pasien</span></div>
+                        <div class="gallery-info">Lounge Tunggu Nyaman</div>
+                    </div>
+                    <div class="gallery-card">
+                        <div class="gallery-img wire-img"><span>Resepsionis</span></div>
+                        <div class="gallery-info">Meja Informasi &amp; Pendaftaran</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reservasi & Form -->
+        <section class="section" id="reservasi">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="wire-badge">Booking Sistem</span>
+                    <h2>Pendaftaran Online Mandiri</h2>
+                    <p>Reservasi instan tanpa ribet antre lama di lokasi klinik.</p>
+                </div>
+                <div class="res-grid">
+                    <div class="res-flow">
+                        <div class="flow-step active">
+                            <div class="step-indicator">1</div>
+                            <div class="step-body">
+                                <h4>Isi Data Pasien &amp; Keluhan</h4>
+                                <p>Masukkan data diri Anda dan perawatan gigi yang dibutuhkan.</p>
+                            </div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="step-indicator">2</div>
+                            <div class="step-body">
+                                <h4>Pilih Dokter &amp; Jadwal Praktik</h4>
+                                <p>Pilih jadwal operasional dokter gigi yang tersedia secara real-time.</p>
+                            </div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="step-indicator">3</div>
+                            <div class="step-body">
+                                <h4>Notifikasi Konfirmasi Otomatis</h4>
+                                <p>Sistem akan mengirimkan konfirmasi reservasi &amp; pengingat jadwal melalui WhatsApp.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="res-card">
+                        <h3>Buat Reservasi</h3>
+                        <p class="res-desc">Silakan lengkapi formulir di bawah ini.</p>
+                        <form id="patientBookingForm" onsubmit="submitReservation(event)">
+                            <div class="form-group">
+                                <label for="patientName">Nama Lengkap Pasien *</label>
+                                <input type="text" id="patientName" class="form-control" placeholder="Contoh: Budi Santoso" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="patientPhone">Nomor WhatsApp *</label>
+                                    <input type="tel" id="patientPhone" class="form-control" placeholder="Contoh: 081234567890" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="careType">Jenis Perawatan *</label>
+                                    <select id="careType" class="form-control" required>
+                                        <option value="">-- Pilih Layanan --</option>
+                                        <option value="Scaling">Scaling &amp; Bersih Karang</option>
+                                        <option value="Tambal Gigi">Tambal Gigi Estetis</option>
+                                        <option value="Behel Gigi">Pemasangan Behel</option>
+                                        <option value="Konsultasi Umum">Konsultasi Dokter Gigi</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="bookDate">Tanggal *</label>
+                                    <input type="date" id="bookDate" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="bookTime">Jam Pertemuan *</label>
+                                    <select id="bookTime" class="form-control" required>
+                                        <option value="">-- Pilih Jam --</option>
+                                        <option value="09:00">09:00 WIB</option>
+                                        <option value="11:00">11:00 WIB</option>
+                                        <option value="14:00">14:00 WIB</option>
+                                        <option value="16:00">16:00 WIB</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-accent btn-block" style="width: 100%; margin-top: 10px;">
+                                Kirim Data Reservasi &amp; Dapatkan Pengingat WA
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Doctors Section -->
+        <section class="section" id="dokter">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="wire-badge">Tim Medis</span>
+                    <h2>Dokter Gigi Spesialis</h2>
+                    <p>Konsultasikan masalah gigi Anda dengan dokter berpengalaman kami.</p>
+                </div>
+                <div class="doctors-grid">
+                    <div class="doctor-card">
+                        <div class="doc-img wire-img"><span>Foto drg. A</span></div>
+                        <div class="doc-info">
+                            <h4>drg. Aris Munandar, Sp.Ort</h4>
+                            <div class="doc-spec">Spesialis Ortodonti (Behel Gigi)</div>
+                            <div class="doc-schedule">Senin - Rabu, 13:00 - 17:00</div>
+                        </div>
+                    </div>
+                    <div class="doctor-card">
+                        <div class="doc-img wire-img"><span>Foto drg. B</span></div>
+                        <div class="doc-info">
+                            <h4>drg. Kartika Sari, Sp.KG</h4>
+                            <div class="doc-spec">Spesialis Konservasi Gigi (Tambal &amp; Saraf)</div>
+                            <div class="doc-schedule">Kamis - Sabtu, 09:00 - 14:00</div>
+                        </div>
+                    </div>
+                    <div class="doctor-card">
+                        <div class="doc-img wire-img"><span>Foto drg. C</span></div>
+                        <div class="doc-info">
+                            <h4>drg. Dimas Pratama</h4>
+                            <div class="doc-spec">Dokter Gigi Umum &amp; Pembersihan</div>
+                            <div class="doc-schedule">Senin - Jumat, 08:00 - 12:00</div>
+                        </div>
+                    </div>
+                    <div class="doctor-card">
+                        <div class="doc-img wire-img"><span>Foto drg. D</span></div>
+                        <div class="doc-info">
+                            <h4>drg. Amanda Putri</h4>
+                            <div class="doc-spec">Dokter Gigi Umum &amp; Estetis</div>
+                            <div class="doc-schedule">Selasa - Sabtu, 14:00 - 18:00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial Section -->
+        <section class="section" id="testimoni">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="wire-badge">Testimoni</span>
+                    <h2>Apa Kata Mereka?</h2>
+                    <p>Ulasan nyata dari pasien setelah melakukan perawatan di klinik kami.</p>
+                </div>
+                <div class="testi-grid">
+                    <div class="testi-card">
+                        <div class="quote-icon">“</div>
+                        <p class="testi-text">Perawatan behel dengan drg. Aris sangat memuaskan. Informasi jadwal dan pengingat via WhatsApp otomatisnya sangat membantu kesibukan saya.</p>
+                        <div class="testi-user">
+                            <div class="testi-avatar">R</div>
+                            <div>
+                                <div class="testi-name">Rian Hidayat</div>
+                                <div class="testi-stars">★★★★★</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testi-card">
+                        <div class="quote-icon">“</div>
+                        <p class="testi-text">Kliniknya steril dan nyaman. Anak saya yang biasanya takut ke dokter gigi jadi senang karena pelayanan dokter umumnya yang sangat ramah.</p>
+                        <div class="testi-user">
+                            <div class="testi-avatar">S</div>
+                            <div>
+                                <div class="testi-name">Siti Aminah</div>
+                                <div class="testi-stars">★★★★★</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testi-card">
+                        <div class="quote-icon">“</div>
+                        <p class="testi-text">Chatbot asisten AI-nya responsif banget waktu saya tanya-tanya kisaran harga bersihkan karang gigi tengah malam. Langsung dibantu booking.</p>
+                        <div class="testi-user">
+                            <div class="testi-avatar">D</div>
+                            <div>
+                                <div class="testi-name">Dedi Kurniawan</div>
+                                <div class="testi-stars">★★★★★</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hubungi Kami & Maps -->
+        <section class="section" id="kontak">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="wire-badge">Kontak &amp; Lokasi</span>
+                    <h2>Hubungi Kami</h2>
+                    <p>Informasi detail kontak dan alamat maps maps klinik gigi.</p>
+                </div>
+                <div class="contact-layout">
+                    <div class="info-panel">
+                        <div class="info-card">
+                            <div class="info-icon">📍</div>
+                            <div class="info-desc">
+                                <strong>Alamat Klinik</strong>
+                                <span>Jl. Jenderal Sudirman No. 45, Kebayoran Baru, Jakarta Selatan</span>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-icon">📞</div>
+                            <div class="info-desc">
+                                <strong>Nomor Telepon &amp; WhatsApp</strong>
+                                <span>+62 821-1234-5678 (Konfirmasi &amp; Pertanyaan)</span>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-icon">✉</div>
+                            <div class="info-desc">
+                                <strong>Email Resmi</strong>
+                                <span>kontak@dentcare-enterprise.id</span>
+                            </div>
+                        </div>
+                        <div class="social-row">
+                            <a href="#" class="social-icon-btn">WA</a>
+                            <a href="#" class="social-icon-btn">IG</a>
+                            <a href="#" class="social-icon-btn">TT</a>
+                            <a href="#" class="social-icon-btn">FB</a>
+                        </div>
+                    </div>
+                    <div class="wire-img" style="height: 340px; width: 100%;">
+                        <span>Google Maps Embed Area</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="container">
+                <div class="footer-top">
+                    <div class="footer-about">
+                        <a href="#" class="logo-area">
+                            <div class="logo-symbol">🦷</div>
+                            <span class="logo-title">DentCare Enterprise</span>
+                        </a>
+                        <p>Klinik gigi modern dengan standar sterilisasi medis tinggi dan fasilitas modern.</p>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Navigasi</h4>
+                        <ul>
+                            <li><a href="#hero">Beranda</a></li>
+                            <li><a href="#layanan">Layanan</a></li>
+                            <li><a href="#dokter">Dokter</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Jam Praktik</h4>
+                        <ul>
+                            <li>Senin - Jumat: 08.00 - 20.00 WIB</li>
+                            <li>Sabtu: 09.00 - 18.00 WIB</li>
+                            <li>Minggu: Libur Nasional</li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Kebijakan</h4>
+                        <ul>
+                            <li><a href="#">Syarat &amp; Ketentuan</a></li>
+                            <li><a href="#">Kebijakan Privasi</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <span>&copy; 2026 DentCare Enterprise. Hak Cipta Dilindungi.</span>
+                    <span>Website Mobile + Reservasi + AI Assistant</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- =========================================================
+         VIEW 2: ENTERPRISE ADMIN DASHBOARD
+         ========================================================= -->
+    <div id="admin-view" class="view-content">
+        <div class="dashboard-wrapper">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-menu">
+                    <div class="logo-area" style="margin-bottom: 24px; padding: 0 16px;">
+                        <div class="logo-symbol" style="border-color: var(--border-accent); color: var(--border-accent);">📊</div>
+                        <span class="logo-title" style="font-size: 14px;">Admin Portal</span>
+                    </div>
+                    <a class="sidebar-item active">📈 Laporan &amp; Ringkasan</a>
+                    <a class="sidebar-item" onclick="alert('Menu Reservasi: Mengelola daftar antrean pasien secara aktif.')">📅 Jadwal &amp; Reservasi</a>
+                    <a class="sidebar-item" onclick="alert('Menu AI Chatbot: Kustomisasi jawaban otomatis 24 jam.')">🤖 AI Assistant Settings</a>
+                    <a class="sidebar-item" onclick="alert('Menu WhatsApp Logs: Monitor pengiriman reminder otomatis.')">💬 WA Gateway Logs</a>
+                    <a class="sidebar-item" onclick="alert('Menu Multi Admin: Mengatur otorisasi akses staf.')">👥 Pengelola Admin</a>
+                </div>
+                <div class="admin-profile">
+                    <div class="admin-avatar">ADM</div>
+                    <div class="admin-details">
+                        <span class="admin-name">drg. Aris M.</span>
+                        <span class="admin-role">Super Admin</span>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="dashboard-body">
+                <div class="db-header">
+                    <div class="db-title">
+                        <h2>Laporan Laju Bisnis Klinik</h2>
+                        <p>Pantau performa reservasi pasien dan alokasi tim dokter secara real-time.</p>
+                    </div>
+                    <button class="btn btn-primary btn-sm" onclick="alert('Fungsi Ekspor Laporan PDF/Excel')">Ekspor Laporan</button>
+                </div>
+
+                <!-- 4 Metrics Row -->
+                <div class="metrics-row">
+                    <div class="metric-card">
+                        <div class="metric-label">Total Pasien Bulan Ini</div>
+                        <div class="metric-value" id="stat-total-patients">348</div>
+                        <div class="metric-trend trend-up">▲ +12% dibanding bulan lalu</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Reservasi Sukses</div>
+                        <div class="metric-value" id="stat-reservations">296</div>
+                        <div class="metric-trend trend-up">▲ +8% dari target mingguan</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Layanan Terpopuler</div>
+                        <div class="metric-value" style="font-size: 20px; line-height: 38px;">Scaling Gigi</div>
+                        <div class="metric-trend" style="color: var(--text-secondary);">42% dari total kunjungan</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Auto-Reminder WA Terkirim</div>
+                        <div class="metric-value">512</div>
+                        <div class="metric-trend trend-up">✔ Tingkat konfirmasi 94%</div>
+                    </div>
+                </div>
+
+                <!-- Chart & Table Grid -->
+                <div class="report-grid">
+                    <!-- Line Chart Mockup -->
+                    <div class="db-box">
+                        <div class="db-box-title">
+                            <span>Statistik Reservasi Mingguan</span>
+                            <span class="wire-tag">Minggu Ini vs Minggu Lalu</span>
+                        </div>
+                        <div class="chart-mockup">
+                            <div class="chart-y-axis">
+                                <span>100</span>
+                                <span>50</span>
+                                <span>0</span>
+                            </div>
+                            <div class="chart-bars">
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar-fill" style="height: 120px;"><span class="chart-value-tag">60</span></div>
+                                    <span class="chart-bar-label">Sen</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar-fill accent" style="height: 160px;"><span class="chart-value-tag">80</span></div>
+                                    <span class="chart-bar-label">Sel</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar-fill" style="height: 90px;"><span class="chart-value-tag">45</span></div>
+                                    <span class="chart-bar-label">Rab</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar-fill accent" style="height: 180px;"><span class="chart-value-tag">90</span></div>
+                                    <span class="chart-bar-label">Kam</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar-fill" style="height: 140px;"><span class="chart-value-tag">70</span></div>
+                                    <span class="chart-bar-label">Jum</span>
+                                </div>
+                                <div class="chart-bar-col">
+                                    <div class="chart-bar-fill accent" style="height: 70px;"><span class="chart-value-tag">35</span></div>
+                                    <span class="chart-bar-label">Sab</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Logs Table Area -->
+                    <div class="db-box" style="padding: 24px;">
+                        <div class="db-box-title">
+                            <span>Log Status WhatsApp Gateway</span>
+                            <span class="wire-tag">Realtime Stream</span>
+                        </div>
+                        <table class="res-table">
+                            <thead>
+                                <tr>
+                                    <th>Pasien</th>
+                                    <th>Status WA</th>
+                                    <th>Waktu</th>
+                                </tr>
+                            </thead>
+                            <tbody id="wa-log-tbody">
+                                <tr>
+                                    <td>Budi Santoso</td>
+                                    <td><span class="status-badge status-wa-sent">✔ Terkirim (Reminder)</span></td>
+                                    <td>10 menit lalu</td>
+                                </tr>
+                                <tr>
+                                    <td>Rinaawati</td>
+                                    <td><span class="status-badge status-wa-sent">✔ Sukses (Booking)</span></td>
+                                    <td>34 menit lalu</td>
+                                </tr>
+                                <tr>
+                                    <td>Anton Wijaya</td>
+                                    <td><span class="status-badge status-wa-pending">⌛ Menunggu Konfirmasi</span></td>
+                                    <td>1 jam lalu</td>
+                                </tr>
+                                <tr>
+                                    <td>Fadel Muhammad</td>
+                                    <td><span class="status-badge status-wa-sent">✔ Terkirim (Reminder)</span></td>
+                                    <td>2 jam lalu</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Multi-Admin Management Panel Mockup -->
+                <div class="db-box multi-admin-panel">
+                    <div class="db-box-title">
+                        <span>Otoritas Hak Akses Multi-Admin</span>
+                        <span class="wire-tag">Manajemen Internal Staff</span>
+                    </div>
+                    <p style="font-size: 13px; color: var(--text-secondary);">Paket Enterprise mendukung pembagian peran kerja (role permissions) untuk operasional klinik yang lebih rapi.</p>
+                    <div class="admin-roles-grid">
+                        <div class="role-box">
+                            <div class="role-box-header">
+                                <span class="role-title">Super Admin</span>
+                                <span class="role-badge">Level 1</span>
+                            </div>
+                            <p style="font-size: 12px; color: var(--text-light);">Biasanya dipegang pemilik klinik.</p>
+                            <ul class="role-permissions">
+                                <li>Akses penuh ekspor data keuangan</li>
+                                <li>Pengaturan integrasi AI Chatbot</li>
+                                <li>Ubah tarif biaya layanan</li>
+                            </ul>
+                        </div>
+                        <div class="role-box">
+                            <div class="role-box-header">
+                                <span class="role-title">Resepsionis / CS</span>
+                                <span class="role-badge">Level 2</span>
+                            </div>
+                            <p style="font-size: 12px; color: var(--text-light);">Untuk pengaturan antrean harian.</p>
+                            <ul class="role-permissions">
+                                <li>Verifikasi jadwal janji temu</li>
+                                <li>Input data rekam medis pasien</li>
+                                <li>Kirim ulang WhatsApp manual</li>
+                            </ul>
+                        </div>
+                        <div class="role-box">
+                            <div class="role-box-header">
+                                <span class="role-title">Dokter Mandiri</span>
+                                <span class="role-badge">Level 3</span>
+                            </div>
+                            <p style="font-size: 12px; color: var(--text-light);">Akses khusus untuk jadwal pribadi.</p>
+                            <ul class="role-permissions">
+                                <li>Lihat daftar pasien hari ini</li>
+                                <li>Kelola ketersediaan jam praktik</li>
+                                <li>Akses rekam medis terbatas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- =========================================================
+         AI ASSISTANT / CHATBOT WIDGET
+         ========================================================= -->
+    <button class="chat-widget-trigger" onclick="toggleChatWindow()">
+        <span class="chat-badge-pulse"></span>
+        💬 Tanya Asisten AI (24 Jam)
+    </button>
+
+    <div class="chat-window" id="aiChatWindow">
+        <div class="chat-header">
+            <div class="chat-header-info">
+                <div class="chat-bot-avatar">🤖</div>
+                <div>
+                    <div class="chat-header-title">DentCare AI Assistant</div>
+                    <div class="chat-header-status">Online • Siap membantu 24 jam</div>
+                </div>
+            </div>
+            <button class="chat-close-btn" onclick="toggleChatWindow()">&times;</button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="msg-bubble msg-bot">
+                Halo! Saya Asisten AI DentCare. Ada yang bisa saya bantu terkait layanan, estimasi biaya, atau jadwal dokter hari ini?
+            </div>
+        </div>
+        <div class="chat-suggested">
+            <button class="suggest-btn" onclick="sendSuggested('Berapa biaya pasang behel?')">Biaya Pasang Behel</button>
+            <button class="suggest-btn" onclick="sendSuggested('Apakah melayani scaling?')">Scaling Gigi</button>
+            <button class="suggest-btn" onclick="sendSuggested('Bagaimana cara buat janji?')">Cara Buat Janji</button>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chatInput" class="chat-input" placeholder="Tulis pertanyaan Anda..." onkeypress="handleChatEnter(event)">
+            <button class="chat-send-btn" onclick="sendUserMessage()">Kirim</button>
+        </div>
+    </div>
+
+    <!-- ============ JAVASCRIPT CONTROLLER ============ -->
+    <script>
+        // ---- Switching Views (Patient vs Admin Portal) ----
+        function switchView(viewName) {
+            const btnPatient = document.getElementById('btn-patient-view');
+            const btnAdmin = document.getElementById('btn-admin-view');
+            const viewPatient = document.getElementById('patient-view');
+            const viewAdmin = document.getElementById('admin-view');
+
+            if (viewName === 'patient') {
+                btnPatient.classList.add('active');
+                btnAdmin.classList.remove('active');
+                viewPatient.classList.add('active');
+                viewAdmin.classList.remove('active');
+            } else {
+                btnPatient.classList.remove('active');
+                btnAdmin.classList.add('active');
+                viewPatient.classList.remove('active');
+                viewAdmin.classList.add('active');
+            }
+        }
+
+        // ---- Chatbot Widget Window Toggle ----
+        function toggleChatWindow() {
+            const chatWin = document.getElementById('aiChatWindow');
+            chatWin.classList.toggle('open');
+        }
+
+        // ---- Simulated AI Chat Logic ----
+        function sendUserMessage() {
+            const input = document.getElementById('chatInput');
+            const query = input.value.trim();
+            if (!query) return;
+
+            appendMessage(query, 'user');
+            input.value = '';
+
+            // Generate auto AI response
+            setTimeout(() => {
+                const response = getAiResponse(query);
+                appendMessage(response, 'bot');
+            }, 600);
+        }
+
+        function handleChatEnter(e) {
+            if (e.key === 'Enter') {
+                sendUserMessage();
+            }
+        }
+
+        function sendSuggested(text) {
+            appendMessage(text, 'user');
+            setTimeout(() => {
+                const response = getAiResponse(text);
+                appendMessage(response, 'bot');
+            }, 600);
+        }
+
+        function appendMessage(text, sender) {
+            const chatMessages = document.getElementById('chatMessages');
+            const bubble = document.createElement('div');
+            bubble.classList.add('msg-bubble');
+            bubble.classList.add(sender === 'user' ? 'msg-user' : 'msg-bot');
+            bubble.textContent = text;
+            chatMessages.appendChild(bubble);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function getAiResponse(query) {
+            const q = query.toLowerCase();
+            if (q.includes('behel') || q.includes('kawat')) {
+                return "Biaya pemasangan behel gigi di DentCare mulai dari Rp 5.500.000 (Spesialis Ortodonti). Layanan mencakup cetak gigi dan konsultasi awal.";
+            }
+            if (q.includes('scaling') || q.includes('karang')) {
+                return "Untuk pembersihan karang gigi (Scaling) estimasi biayanya adalah Rp 250.000 per kunjungan, menggunakan alat ultrasonic scaler modern.";
+            }
+            if (q.includes('janji') || q.includes('booking') || q.includes('cara')) {
+                return "Anda bisa langsung membuat janji secara mandiri melalui form booking di bagian tengah website, lalu konfirmasi otomatis dikirim via WhatsApp.";
+            }
+            if (q.includes('dokter') || q.includes('jadwal')) {
+                return "Kami memiliki 4 dokter spesialis aktif. Jadwal lengkap dokter dapat dilihat langsung di section 'Tim Medis' pada halaman utama.";
+            }
+            return "Terima kasih atas pertanyaannya. Pesan Anda telah diteruskan ke tim resepsionis kami. Silakan hubungi kami via WhatsApp untuk respon cepat.";
+        }
+
+        // ---- Patient Form Submit Handler (Simulating WA Flow & updating Admin DB) ----
+        function submitReservation(e) {
+            e.preventDefault();
+            const name = document.getElementById('patientName').value;
+            const phone = document.getElementById('patientPhone').value;
+            const care = document.getElementById('careType').value;
+            const date = document.getElementById('bookDate').value;
+            const time = document.getElementById('bookTime').value;
+
+            // Step 1: Open simulated WhatsApp with format
+            const msg = encodeURIComponent(
+                `📋 *PENDAFTARAN RESERVASI ONLINE ENTERPRISE*\n\n` +
+                `Nama Pasien: ${name}\n` +
+                `WhatsApp: ${phone}\n` +
+                `Jenis Perawatan: ${care}\n` +
+                `Tanggal: ${date}\n` +
+                `Jam Kedatangan: ${time} WIB\n\n` +
+                `Konfirmasi otomatis dikirim ke system admin.`
+            );
+            window.open(`https://wa.me/6282112345678?text=${msg}`, '_blank');
+
+            // Step 2: Dynamically add to Admin log table to show reactive UI integration
+            const tbody = document.getElementById('wa-log-tbody');
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td><strong>${name}</strong></td>
+                <td><span class="status-badge status-wa-sent">✔ Terkirim (Booking)</span></td>
+                <td>Baru saja</td>
+            `;
+            tbody.insertBefore(newRow, tbody.firstChild);
+
+            // Step 3: Increment total patients dashboard counter
+            const counter = document.getElementById('stat-total-patients');
+            const currentTotal = parseInt(counter.textContent);
+            counter.textContent = currentTotal + 1;
+
+            alert('Data reservasi terkirim! Detail log telah masuk ke Dashboard Admin.');
+            e.target.reset();
+        }
+
+        // ---- Set date limit to today ----
+        const dateInput = document.getElementById('bookDate');
+        if (dateInput) {
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.setAttribute('min', today);
+        }
+    </script>
+</body>
+</html>
