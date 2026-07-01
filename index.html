@@ -1,0 +1,1757 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Template Website UMKM Basic - Landing Page profesional dan responsif untuk usaha kecil menengah.">
+    <title>Nama Usaha Anda — Website UMKM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           WIREFRAME DESIGN SYSTEM
+           ============================================ */
+        :root {
+            --wire-bg: #FAFAFA;
+            --wire-surface: #FFFFFF;
+            --wire-border: #B0B0B0;
+            --wire-border-dark: #888888;
+            --wire-text: #333333;
+            --wire-text-light: #777777;
+            --wire-accent: #4A90D9;
+            --wire-accent-hover: #357ABD;
+            --wire-placeholder: #E8E8E8;
+            --wire-placeholder-dark: #D0D0D0;
+            --wire-cross-color: #C0C0C0;
+            --wire-radius: 4px;
+            --wire-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            --font-sketch: 'Architects Daughter', cursive;
+            --font-body: 'Inter', sans-serif;
+            --container-max: 1100px;
+            --section-padding: 80px 0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--wire-bg);
+            color: var(--wire-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Wireframe annotation labels */
+        .wire-label {
+            font-family: var(--font-sketch);
+            font-size: 11px;
+            color: var(--wire-accent);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .wire-label::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border: 1.5px solid var(--wire-accent);
+            border-radius: 50%;
+        }
+
+        /* Placeholder image box with cross */
+        .placeholder-img {
+            background-color: var(--wire-placeholder);
+            border: 2px dashed var(--wire-border);
+            border-radius: var(--wire-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            color: var(--wire-text-light);
+            font-family: var(--font-sketch);
+            font-size: 13px;
+        }
+
+        .placeholder-img::before,
+        .placeholder-img::after {
+            content: '';
+            position: absolute;
+            background-color: var(--wire-cross-color);
+        }
+
+        .placeholder-img::before {
+            width: 141%;
+            height: 1.5px;
+            transform: rotate(45deg);
+        }
+
+        .placeholder-img::after {
+            width: 141%;
+            height: 1.5px;
+            transform: rotate(-45deg);
+        }
+
+        .placeholder-img span {
+            position: relative;
+            z-index: 2;
+            background: var(--wire-placeholder);
+            padding: 4px 12px;
+            border-radius: 3px;
+        }
+
+        /* Dashed separator */
+        .wire-divider {
+            border: none;
+            border-top: 2px dashed var(--wire-border);
+            margin: 0;
+        }
+
+        /* ============================================
+           HEADER / NAVIGATION
+           ============================================ */
+        .header {
+            background: var(--wire-surface);
+            border-bottom: 2px solid var(--wire-border);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--wire-shadow);
+        }
+
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--wire-text);
+        }
+
+        .logo-box {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--wire-border-dark);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-sketch);
+            font-size: 18px;
+            color: var(--wire-text-light);
+            background: var(--wire-placeholder);
+        }
+
+        .logo-text {
+            font-family: var(--font-sketch);
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--wire-text-light);
+            font-size: 14px;
+            font-weight: 500;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .nav a:hover,
+        .nav a.active {
+            color: var(--wire-text);
+            border-bottom-color: var(--wire-border-dark);
+        }
+
+        .nav-cta {
+            padding: 8px 20px !important;
+            border: 2px solid var(--wire-border-dark) !important;
+            border-radius: var(--wire-radius) !important;
+            font-family: var(--font-sketch) !important;
+            transition: all 0.2s ease !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--wire-text) !important;
+            color: white !important;
+            border-color: var(--wire-text) !important;
+        }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: var(--wire-text);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            padding: 100px 0 80px;
+            border-bottom: 2px dashed var(--wire-border);
+        }
+
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-sketch);
+            font-size: 42px;
+            line-height: 1.2;
+            color: var(--wire-text);
+        }
+
+        .hero h1 .highlight {
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h1 .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: -4px;
+            right: -4px;
+            height: 12px;
+            background: rgba(74, 144, 217, 0.15);
+            border-radius: 2px;
+            z-index: -1;
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: var(--wire-text-light);
+            max-width: 460px;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: var(--wire-radius);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: var(--font-body);
+        }
+
+        .btn-primary {
+            background: var(--wire-text);
+            color: white;
+            border: 2px solid var(--wire-text);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--wire-text);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--wire-text);
+            border: 2px solid var(--wire-border-dark);
+        }
+
+        .btn-outline:hover {
+            background: var(--wire-text);
+            color: white;
+            border-color: var(--wire-text);
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 380px;
+        }
+
+        /* ============================================
+           SECTION: PROFIL USAHA
+           ============================================ */
+        .section {
+            padding: var(--section-padding);
+            border-bottom: 2px dashed var(--wire-border);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-sketch);
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            color: var(--wire-text-light);
+            font-size: 15px;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 320px;
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .about-content h3 {
+            font-family: var(--font-sketch);
+            font-size: 24px;
+        }
+
+        .about-content p {
+            color: var(--wire-text-light);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .stats-row {
+            display: flex;
+            gap: 32px;
+            margin-top: 12px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 16px 20px;
+            border: 2px dashed var(--wire-border);
+            border-radius: var(--wire-radius);
+            min-width: 100px;
+        }
+
+        .stat-number {
+            font-family: var(--font-sketch);
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--wire-text);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--wire-text-light);
+            margin-top: 4px;
+        }
+
+        /* ============================================
+           SECTION: PRODUK / JASA
+           ============================================ */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .product-card {
+            background: var(--wire-surface);
+            border: 2px solid var(--wire-border);
+            border-radius: var(--wire-radius);
+            overflow: hidden;
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            border-color: var(--wire-border-dark);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        }
+
+        .product-card .placeholder-img {
+            height: 200px;
+            border: none;
+            border-bottom: 2px dashed var(--wire-border);
+            border-radius: 0;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h4 {
+            font-family: var(--font-sketch);
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .product-info p {
+            font-size: 13px;
+            color: var(--wire-text-light);
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .product-price {
+            font-family: var(--font-sketch);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--wire-text);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .product-price .btn {
+            padding: 6px 16px;
+            font-size: 12px;
+        }
+
+        /* ============================================
+           SECTION: KEUNGGULAN / WHY US
+           ============================================ */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 32px 20px;
+            border: 2px dashed var(--wire-border);
+            border-radius: var(--wire-radius);
+            transition: all 0.2s ease;
+        }
+
+        .feature-card:hover {
+            border-color: var(--wire-border-dark);
+            background: var(--wire-surface);
+            box-shadow: var(--wire-shadow);
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 16px;
+            border: 2px solid var(--wire-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            background: var(--wire-placeholder);
+        }
+
+        .feature-card h4 {
+            font-family: var(--font-sketch);
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            font-size: 13px;
+            color: var(--wire-text-light);
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           SECTION: TESTIMONI
+           ============================================ */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .testimonial-card {
+            background: var(--wire-surface);
+            border: 2px solid var(--wire-border);
+            border-radius: var(--wire-radius);
+            padding: 28px;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-family: var(--font-sketch);
+            font-size: 48px;
+            color: var(--wire-placeholder-dark);
+            position: absolute;
+            top: 12px;
+            left: 20px;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-size: 14px;
+            color: var(--wire-text-light);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            padding-top: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testimonial-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--wire-border);
+            background: var(--wire-placeholder);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-sketch);
+            font-size: 14px;
+            color: var(--wire-text-light);
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .testimonial-role {
+            font-size: 12px;
+            color: var(--wire-text-light);
+        }
+
+        .testimonial-stars {
+            color: var(--wire-border-dark);
+            font-size: 14px;
+            letter-spacing: 2px;
+            margin-top: 2px;
+        }
+
+        /* ============================================
+           SECTION: KONTAK & FORMULIR
+           ============================================ */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .contact-info h3 {
+            font-family: var(--font-sketch);
+            font-size: 24px;
+        }
+
+        .contact-info p {
+            color: var(--wire-text-light);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px;
+            border: 2px dashed var(--wire-border);
+            border-radius: var(--wire-radius);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            border: 2px solid var(--wire-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            background: var(--wire-placeholder);
+        }
+
+        .contact-detail strong {
+            font-family: var(--font-sketch);
+            font-size: 14px;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .contact-detail span {
+            font-size: 13px;
+            color: var(--wire-text-light);
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 180px;
+            margin-top: 8px;
+        }
+
+        /* Social Media Links */
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .social-link {
+            width: 44px;
+            height: 44px;
+            border: 2px solid var(--wire-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--wire-text-light);
+            font-size: 12px;
+            font-family: var(--font-sketch);
+            transition: all 0.2s ease;
+            background: var(--wire-surface);
+        }
+
+        .social-link:hover {
+            border-color: var(--wire-text);
+            color: var(--wire-text);
+            background: var(--wire-placeholder);
+            transform: translateY(-2px);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: var(--wire-surface);
+            border: 2px solid var(--wire-border);
+            border-radius: var(--wire-radius);
+            padding: 32px;
+        }
+
+        .contact-form h3 {
+            font-family: var(--font-sketch);
+            font-size: 22px;
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--wire-text);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px 14px;
+            border: 2px solid var(--wire-border);
+            border-radius: var(--wire-radius);
+            font-size: 14px;
+            font-family: var(--font-body);
+            background: var(--wire-bg);
+            color: var(--wire-text);
+            transition: border-color 0.2s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--wire-border-dark);
+            box-shadow: 0 0 0 3px rgba(136, 136, 136, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 14px;
+            background: var(--wire-text);
+            color: white;
+            border: 2px solid var(--wire-text);
+            border-radius: var(--wire-radius);
+            font-size: 15px;
+            font-weight: 600;
+            font-family: var(--font-sketch);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .form-submit:hover {
+            background: transparent;
+            color: var(--wire-text);
+        }
+
+        /* ============================================
+           FLOATING WHATSAPP BUTTON
+           ============================================ */
+        .wa-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 999;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid var(--wire-border-dark);
+            background: var(--wire-surface);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--wire-text);
+            font-family: var(--font-sketch);
+            font-size: 13px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .wa-float:hover {
+            transform: scale(1.1) translateY(-2px);
+            box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+            background: var(--wire-text);
+            color: white;
+        }
+
+        .wa-float .wa-tooltip {
+            position: absolute;
+            right: 72px;
+            background: var(--wire-surface);
+            border: 2px solid var(--wire-border);
+            border-radius: var(--wire-radius);
+            padding: 8px 14px;
+            font-size: 12px;
+            font-family: var(--font-body);
+            color: var(--wire-text);
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+            box-shadow: var(--wire-shadow);
+        }
+
+        .wa-float:hover .wa-tooltip {
+            opacity: 1;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            background: var(--wire-surface);
+            border-top: 2px solid var(--wire-border);
+            padding: 48px 0 24px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            font-size: 13px;
+            color: var(--wire-text-light);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-sketch);
+            font-size: 15px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px dashed var(--wire-border);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a {
+            text-decoration: none;
+            color: var(--wire-text-light);
+            font-size: 13px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--wire-text);
+        }
+
+        .footer-bottom {
+            border-top: 2px dashed var(--wire-border);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: var(--wire-text-light);
+        }
+
+        .footer-bottom a {
+            color: var(--wire-text-light);
+            text-decoration: none;
+        }
+
+        /* ============================================
+           WIREFRAME ANNOTATIONS
+           ============================================ */
+        .wire-annotation {
+            position: absolute;
+            font-family: var(--font-sketch);
+            font-size: 11px;
+            color: var(--wire-accent);
+            background: rgba(74, 144, 217, 0.08);
+            padding: 2px 8px;
+            border-radius: 3px;
+            border: 1px solid rgba(74, 144, 217, 0.2);
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        /* Section annotations */
+        .section {
+            position: relative;
+        }
+
+        .section > .wire-annotation {
+            top: 12px;
+            right: 24px;
+        }
+
+        /* ============================================
+           BACK TO TOP
+           ============================================ */
+        .back-to-top {
+            position: fixed;
+            bottom: 100px;
+            right: 32px;
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--wire-border);
+            border-radius: 50%;
+            background: var(--wire-surface);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-family: var(--font-sketch);
+            font-size: 16px;
+            color: var(--wire-text-light);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 90;
+            box-shadow: var(--wire-shadow);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            border-color: var(--wire-text);
+            color: var(--wire-text);
+            transform: translateY(-2px);
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+        @media (max-width: 992px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-image {
+                height: 280px;
+                order: -1;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .about-image {
+                height: 260px;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: 56px 0;
+            }
+
+            .nav {
+                display: none;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: var(--wire-surface);
+                border-bottom: 2px solid var(--wire-border);
+                flex-direction: column;
+                padding: 20px 24px;
+                gap: 16px;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            }
+
+            .nav.open {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero {
+                padding: 60px 0;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-row {
+                flex-wrap: wrap;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+
+            .section-header h2 {
+                font-size: 26px;
+            }
+
+            .wire-annotation {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-buttons .btn {
+                text-align: center;
+                justify-content: center;
+            }
+
+            .social-links {
+                flex-wrap: wrap;
+            }
+        }
+
+        /* ============================================
+           ANIMATIONS
+           ============================================ */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Stagger children */
+        .stagger > * {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .stagger.visible > *:nth-child(1) { transition-delay: 0.05s; }
+        .stagger.visible > *:nth-child(2) { transition-delay: 0.1s; }
+        .stagger.visible > *:nth-child(3) { transition-delay: 0.15s; }
+        .stagger.visible > *:nth-child(4) { transition-delay: 0.2s; }
+        .stagger.visible > *:nth-child(5) { transition-delay: 0.25s; }
+        .stagger.visible > *:nth-child(6) { transition-delay: 0.3s; }
+
+        .stagger.visible > * {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+         HEADER / NAVIGATION
+         ========================================== -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <div class="logo-box">☐</div>
+                <span class="logo-text">Nama Usaha</span>
+            </a>
+            <nav class="nav" id="mainNav">
+                <a href="#beranda" class="active">Beranda</a>
+                <a href="#tentang">Tentang</a>
+                <a href="#produk">Produk</a>
+                <a href="#testimoni">Testimoni</a>
+                <a href="#kontak" class="nav-cta">Hubungi Kami</a>
+            </nav>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         HERO SECTION
+         ========================================== -->
+    <section class="hero" id="beranda">
+        <span class="wire-annotation">← HERO SECTION</span>
+        <div class="container">
+            <div class="hero-content fade-in">
+                <div class="wire-label">Landing Page</div>
+                <h1>
+                    Solusi Terbaik untuk
+                    <span class="highlight">Bisnis UMKM</span>
+                    Anda
+                </h1>
+                <p>
+                    Deskripsi singkat tentang usaha Anda. Jelaskan apa yang membuat 
+                    produk atau jasa Anda unik dan mengapa pelanggan harus memilih Anda.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#produk" class="btn btn-primary">Lihat Produk →</a>
+                    <a href="https://wa.me/628xxxxxxxxxx" class="btn btn-outline">💬 Chat WhatsApp</a>
+                </div>
+            </div>
+            <div class="hero-image placeholder-img fade-in">
+                <span>Hero Image / Banner (600×380)</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         TENTANG / PROFIL USAHA
+         ========================================== -->
+    <section class="section" id="tentang">
+        <span class="wire-annotation">← PROFIL USAHA</span>
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="wire-label">Profil Usaha</div>
+                <h2>Tentang Kami</h2>
+                <p>Ceritakan siapa Anda, sejarah usaha, dan visi misi bisnis Anda kepada pelanggan.</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-image placeholder-img fade-in">
+                    <span>Foto Usaha / Tim (480×320)</span>
+                </div>
+                <div class="about-content fade-in">
+                    <h3>Nama Usaha Anda</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                        Tuliskan deskripsi lengkap tentang usaha Anda di sini. 
+                        Ceritakan sejarah pendirian, fokus bisnis, dan apa yang 
+                        membedakan Anda dari kompetitor.
+                    </p>
+                    <p>
+                        Kami berkomitmen untuk memberikan produk/jasa berkualitas 
+                        terbaik dengan harga yang terjangkau bagi semua kalangan.
+                    </p>
+                    <div class="stats-row stagger">
+                        <div class="stat-item">
+                            <span class="stat-number">5+</span>
+                            <div class="stat-label">Tahun</div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">1K+</span>
+                            <div class="stat-label">Pelanggan</div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <div class="stat-label">Produk</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         PRODUK / JASA
+         ========================================== -->
+    <section class="section" id="produk">
+        <span class="wire-annotation">← PRODUK / JASA</span>
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="wire-label">Katalog</div>
+                <h2>Produk & Jasa Kami</h2>
+                <p>Temukan berbagai produk dan layanan unggulan yang kami tawarkan untuk Anda.</p>
+            </div>
+            <div class="products-grid stagger">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="placeholder-img">
+                        <span>Foto Produk 1</span>
+                    </div>
+                    <div class="product-info">
+                        <h4>Nama Produk 1</h4>
+                        <p>Deskripsi singkat produk atau jasa Anda. Jelaskan fitur dan manfaat utama.</p>
+                        <div class="product-price">
+                            Rp 150.000
+                            <a href="#kontak" class="btn btn-outline">Pesan</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="placeholder-img">
+                        <span>Foto Produk 2</span>
+                    </div>
+                    <div class="product-info">
+                        <h4>Nama Produk 2</h4>
+                        <p>Deskripsi singkat produk atau jasa Anda. Jelaskan fitur dan manfaat utama.</p>
+                        <div class="product-price">
+                            Rp 250.000
+                            <a href="#kontak" class="btn btn-outline">Pesan</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="placeholder-img">
+                        <span>Foto Produk 3</span>
+                    </div>
+                    <div class="product-info">
+                        <h4>Nama Produk 3</h4>
+                        <p>Deskripsi singkat produk atau jasa Anda. Jelaskan fitur dan manfaat utama.</p>
+                        <div class="product-price">
+                            Rp 350.000
+                            <a href="#kontak" class="btn btn-outline">Pesan</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="placeholder-img">
+                        <span>Foto Produk 4</span>
+                    </div>
+                    <div class="product-info">
+                        <h4>Nama Produk 4</h4>
+                        <p>Deskripsi singkat produk atau jasa Anda. Jelaskan fitur dan manfaat utama.</p>
+                        <div class="product-price">
+                            Rp 175.000
+                            <a href="#kontak" class="btn btn-outline">Pesan</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="placeholder-img">
+                        <span>Foto Produk 5</span>
+                    </div>
+                    <div class="product-info">
+                        <h4>Nama Produk 5</h4>
+                        <p>Deskripsi singkat produk atau jasa Anda. Jelaskan fitur dan manfaat utama.</p>
+                        <div class="product-price">
+                            Rp 450.000
+                            <a href="#kontak" class="btn btn-outline">Pesan</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="placeholder-img">
+                        <span>Foto Produk 6</span>
+                    </div>
+                    <div class="product-info">
+                        <h4>Nama Produk 6</h4>
+                        <p>Deskripsi singkat produk atau jasa Anda. Jelaskan fitur dan manfaat utama.</p>
+                        <div class="product-price">
+                            Rp 200.000
+                            <a href="#kontak" class="btn btn-outline">Pesan</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         KEUNGGULAN / WHY CHOOSE US
+         ========================================== -->
+    <section class="section" id="keunggulan">
+        <span class="wire-annotation">← KEUNGGULAN</span>
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="wire-label">Mengapa Kami</div>
+                <h2>Keunggulan Kami</h2>
+                <p>Alasan mengapa pelanggan mempercayai produk dan layanan kami.</p>
+            </div>
+            <div class="features-grid stagger">
+                <div class="feature-card">
+                    <div class="feature-icon">✦</div>
+                    <h4>Kualitas Terjamin</h4>
+                    <p>Produk berkualitas tinggi dengan bahan terbaik yang sudah teruji.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h4>Pengiriman Cepat</h4>
+                    <p>Proses cepat dan pengiriman tepat waktu ke seluruh Indonesia.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h4>Layanan 24/7</h4>
+                    <p>Tim kami siap melayani pertanyaan dan konsultasi kapan saja.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">♻</div>
+                    <h4>Garansi Produk</h4>
+                    <p>Jaminan kepuasan pelanggan dengan garansi pengembalian.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         TESTIMONI
+         ========================================== -->
+    <section class="section" id="testimoni">
+        <span class="wire-annotation">← TESTIMONI</span>
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="wire-label">Testimoni</div>
+                <h2>Apa Kata Pelanggan</h2>
+                <p>Testimoni dari pelanggan setia yang telah menggunakan produk dan jasa kami.</p>
+            </div>
+            <div class="testimonials-grid stagger">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        Produknya sangat berkualitas dan pelayanannya ramah. 
+                        Sangat recommended untuk semua orang!
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">A</div>
+                        <div>
+                            <div class="testimonial-name">Nama Pelanggan 1</div>
+                            <div class="testimonial-role">Pembeli</div>
+                            <div class="testimonial-stars">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        Pengiriman cepat dan produk sesuai dengan deskripsi. 
+                        Pasti akan belanja lagi di sini!
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">B</div>
+                        <div>
+                            <div class="testimonial-name">Nama Pelanggan 2</div>
+                            <div class="testimonial-role">Pembeli</div>
+                            <div class="testimonial-stars">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        Harganya terjangkau tapi kualitasnya tidak murahan. 
+                        Terima kasih sudah memberikan produk terbaik!
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">C</div>
+                        <div>
+                            <div class="testimonial-name">Nama Pelanggan 3</div>
+                            <div class="testimonial-role">Pembeli</div>
+                            <div class="testimonial-stars">★★★★☆</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         KONTAK & FORMULIR
+         ========================================== -->
+    <section class="section" id="kontak">
+        <span class="wire-annotation">← KONTAK & FORM</span>
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="wire-label">Kontak</div>
+                <h2>Hubungi Kami</h2>
+                <p>Ada pertanyaan atau ingin memesan? Hubungi kami melalui formulir atau media sosial.</p>
+            </div>
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="contact-info fade-in">
+                    <h3>Informasi Kontak</h3>
+                    <p>Jangan ragu untuk menghubungi kami. Kami siap membantu Anda dengan senang hati.</p>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-detail">
+                            <strong>Alamat</strong>
+                            <span>Jl. Contoh No. 123, Kota, Provinsi 12345</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-detail">
+                            <strong>WhatsApp</strong>
+                            <span>+62 812-3456-7890</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">✉</div>
+                        <div class="contact-detail">
+                            <strong>Email</strong>
+                            <span>email@namausaha.com</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">🕐</div>
+                        <div class="contact-detail">
+                            <strong>Jam Operasional</strong>
+                            <span>Senin - Sabtu, 08:00 - 17:00 WIB</span>
+                        </div>
+                    </div>
+
+                    <!-- Social Media Integration -->
+                    <div>
+                        <div class="wire-label">Sosial Media</div>
+                        <div class="social-links">
+                            <a href="https://wa.me/628xxxxxxxxxx" class="social-link" title="WhatsApp" target="_blank" rel="noopener">WA</a>
+                            <a href="https://instagram.com/namausaha" class="social-link" title="Instagram" target="_blank" rel="noopener">IG</a>
+                            <a href="https://tiktok.com/@namausaha" class="social-link" title="TikTok" target="_blank" rel="noopener">TT</a>
+                            <a href="https://facebook.com/namausaha" class="social-link" title="Facebook" target="_blank" rel="noopener">FB</a>
+                            <a href="https://twitter.com/namausaha" class="social-link" title="Twitter / X" target="_blank" rel="noopener">X</a>
+                        </div>
+                    </div>
+
+                    <!-- Map Placeholder -->
+                    <div class="map-placeholder placeholder-img">
+                        <span>Google Maps Embed</span>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form fade-in">
+                    <h3>Kirim Pesan</h3>
+                    <form id="contactForm" onsubmit="handleSubmit(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nama">Nama Lengkap *</label>
+                                <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="telepon">No. Telepon *</label>
+                                <input type="tel" id="telepon" name="telepon" placeholder="08xx-xxxx-xxxx" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="email@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="subjek">Subjek</label>
+                            <select id="subjek" name="subjek">
+                                <option value="">— Pilih Subjek —</option>
+                                <option value="tanya-produk">Tanya Produk / Jasa</option>
+                                <option value="pemesanan">Pemesanan</option>
+                                <option value="kerjasama">Kerjasama</option>
+                                <option value="lainnya">Lainnya</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="pesan">Pesan *</label>
+                            <textarea id="pesan" name="pesan" placeholder="Tuliskan pesan Anda di sini..." required></textarea>
+                        </div>
+                        <button type="submit" class="form-submit" id="submitBtn">Kirim Pesan →</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         FOOTER
+         ========================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-box">☐</div>
+                        <span class="logo-text">Nama Usaha</span>
+                    </a>
+                    <p>
+                        Deskripsi singkat tentang usaha Anda. Satu atau dua kalimat 
+                        yang menjelaskan identitas dan fokus bisnis Anda.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">WA</a>
+                        <a href="#" class="social-link">IG</a>
+                        <a href="#" class="social-link">TT</a>
+                        <a href="#" class="social-link">FB</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigasi</h4>
+                    <ul>
+                        <li><a href="#beranda">Beranda</a></li>
+                        <li><a href="#tentang">Tentang</a></li>
+                        <li><a href="#produk">Produk</a></li>
+                        <li><a href="#testimoni">Testimoni</a></li>
+                        <li><a href="#kontak">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Layanan</h4>
+                    <ul>
+                        <li><a href="#">Produk A</a></li>
+                        <li><a href="#">Produk B</a></li>
+                        <li><a href="#">Jasa C</a></li>
+                        <li><a href="#">Custom Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Informasi</h4>
+                    <ul>
+                        <li><a href="#">Cara Pemesanan</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="#">Syarat & Ketentuan</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 Nama Usaha. All rights reserved.</span>
+                <span>Template by <a href="#">UMKM Basic</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         FLOATING WHATSAPP BUTTON
+         ========================================== -->
+    <a href="https://wa.me/628xxxxxxxxxx?text=Halo,%20saya%20tertarik%20dengan%20produk%20Anda" 
+       class="wa-float" 
+       target="_blank" 
+       rel="noopener"
+       title="Chat via WhatsApp"
+       id="waFloat">
+        💬
+        <span class="wa-tooltip">Chat via WhatsApp</span>
+    </a>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" title="Kembali ke atas">↑</button>
+
+    <!-- ==========================================
+         JAVASCRIPT
+         ========================================== -->
+    <script>
+        // ---- Mobile Navigation Toggle ----
+        const hamburger = document.getElementById('hamburger');
+        const mainNav = document.getElementById('mainNav');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mainNav.classList.toggle('open');
+        });
+
+        // Close nav when clicking a link
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mainNav.classList.remove('open');
+            });
+        });
+
+        // ---- Active Nav Link on Scroll ----
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav a[href^="#"]');
+
+        function updateActiveNav() {
+            const scrollY = window.scrollY + 100;
+            sections.forEach(section => {
+                const top = section.offsetTop;
+                const height = section.offsetHeight;
+                const id = section.getAttribute('id');
+                if (scrollY >= top && scrollY < top + height) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+
+        // ---- Scroll Animations (Intersection Observer) ----
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -60px 0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in, .stagger').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ---- Back to Top Button ----
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ---- Contact Form Handler ----
+        function handleSubmit(e) {
+            e.preventDefault();
+
+            const btn = document.getElementById('submitBtn');
+            const originalText = btn.textContent;
+
+            // Simulate sending
+            btn.textContent = 'Mengirim...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                // Build WhatsApp message from form
+                const nama = document.getElementById('nama').value;
+                const telepon = document.getElementById('telepon').value;
+                const email = document.getElementById('email').value;
+                const subjek = document.getElementById('subjek').value;
+                const pesan = document.getElementById('pesan').value;
+
+                const waMessage = encodeURIComponent(
+                    `Halo, saya ingin menghubungi Anda.\n\n` +
+                    `Nama: ${nama}\n` +
+                    `Telepon: ${telepon}\n` +
+                    `Email: ${email || '-'}\n` +
+                    `Subjek: ${subjek || '-'}\n` +
+                    `Pesan: ${pesan}`
+                );
+
+                // Option 1: Open WhatsApp with pre-filled message
+                window.open(`https://wa.me/628xxxxxxxxxx?text=${waMessage}`, '_blank');
+
+                // Reset form
+                btn.textContent = '✓ Terkirim!';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                    e.target.reset();
+                }, 2000);
+
+            }, 800);
+        }
+
+        // ---- Smooth Scroll for Anchor Links ----
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    const offset = 72;
+                    const targetPos = target.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top: targetPos, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
