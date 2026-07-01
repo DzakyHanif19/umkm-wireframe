@@ -1,0 +1,2119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Klinik Anda — Website profesional dengan reservasi online, daftar layanan, dan galeri fasilitas.">
+    <title>Nama Klinik — Website Professional</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           WIREFRAME DESIGN SYSTEM — PLUS JAKARTA SANS
+           ============================================ */
+        :root {
+            --wire-bg: #F5F5F5;
+            --wire-surface: #FFFFFF;
+            --wire-border: #C8C8C8;
+            --wire-border-dark: #999999;
+            --wire-border-light: #E0E0E0;
+            --wire-text: #2A2A2A;
+            --wire-text-mid: #555555;
+            --wire-text-light: #888888;
+            --wire-accent: #5B8DEF;
+            --wire-accent-light: rgba(91,141,239,0.08);
+            --wire-placeholder: #EBEBEB;
+            --wire-placeholder-dark: #D5D5D5;
+            --wire-cross: #CCCCCC;
+            --wire-success: #4CAF50;
+            --wire-warning: #FF9800;
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.1);
+            --font: 'Plus Jakarta Sans', sans-serif;
+            --container: 1140px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font);
+            background: var(--wire-bg);
+            color: var(--wire-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* — Wireframe Labels — */
+        .wire-label {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--wire-accent);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .wire-label::before {
+            content: '';
+            width: 20px;
+            height: 2px;
+            background: var(--wire-accent);
+            border-radius: 1px;
+        }
+
+        /* — Wireframe Annotation Tags — */
+        .wire-tag {
+            position: absolute;
+            top: 16px;
+            right: 24px;
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--wire-accent);
+            background: var(--wire-accent-light);
+            padding: 4px 10px;
+            border-radius: 3px;
+            border: 1px dashed var(--wire-accent);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* — Placeholder Image Box — */
+        .placeholder-img {
+            background: var(--wire-placeholder);
+            border: 2px dashed var(--wire-border);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            color: var(--wire-text-light);
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .placeholder-img::before,
+        .placeholder-img::after {
+            content: '';
+            position: absolute;
+            background: var(--wire-cross);
+        }
+
+        .placeholder-img::before {
+            width: 141%;
+            height: 1px;
+            transform: rotate(45deg);
+        }
+
+        .placeholder-img::after {
+            width: 141%;
+            height: 1px;
+            transform: rotate(-45deg);
+        }
+
+        .placeholder-img span {
+            position: relative;
+            z-index: 2;
+            background: var(--wire-placeholder);
+            padding: 4px 14px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 11px;
+            letter-spacing: 0.3px;
+        }
+
+        /* — Buttons — */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: var(--font);
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--wire-text);
+            color: #fff;
+            border-color: var(--wire-text);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--wire-text);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--wire-text);
+            border-color: var(--wire-border-dark);
+        }
+
+        .btn-outline:hover {
+            background: var(--wire-text);
+            color: #fff;
+            border-color: var(--wire-text);
+        }
+
+        .btn-sm {
+            padding: 8px 18px;
+            font-size: 12px;
+        }
+
+        .btn-block { width: 100%; justify-content: center; }
+
+        /* — Section Base — */
+        .section {
+            padding: 88px 0;
+            border-bottom: 2px dashed var(--wire-border);
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-header p {
+            color: var(--wire-text-light);
+            font-size: 15px;
+            max-width: 540px;
+            margin: 0 auto;
+        }
+
+        /* ============================================
+           HEADER
+           ============================================ */
+        .header {
+            background: var(--wire-surface);
+            border-bottom: 2px solid var(--wire-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 68px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--wire-text);
+        }
+
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+            border: 2px solid var(--wire-border-dark);
+            border-radius: var(--radius-md);
+            background: var(--wire-placeholder);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .logo-name {
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+        }
+
+        .logo-name small {
+            display: block;
+            font-size: 9px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--wire-text-light);
+            margin-top: -2px;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--wire-text-mid);
+            font-size: 13px;
+            font-weight: 600;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .nav a:hover,
+        .nav a.active {
+            color: var(--wire-text);
+            border-bottom-color: var(--wire-text);
+        }
+
+        .nav-cta {
+            padding: 8px 20px !important;
+            border: 2px solid var(--wire-text) !important;
+            border-radius: var(--radius-md) !important;
+            background: var(--wire-text) !important;
+            color: #fff !important;
+            border-bottom: none !important;
+        }
+
+        .nav-cta:hover {
+            background: transparent !important;
+            color: var(--wire-text) !important;
+        }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--wire-text);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* ============================================
+           HERO
+           ============================================ */
+        .hero {
+            padding: 100px 0 88px;
+            border-bottom: 2px dashed var(--wire-border);
+            position: relative;
+        }
+
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 56px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: var(--wire-accent-light);
+            border: 1px dashed var(--wire-accent);
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--wire-accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-size: 44px;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 .underline {
+            position: relative;
+            display: inline;
+        }
+
+        .hero h1 .underline::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: rgba(91,141,239,0.12);
+            border-radius: 2px;
+            z-index: -1;
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: var(--wire-text-light);
+            line-height: 1.7;
+            margin-bottom: 28px;
+            max-width: 480px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 400px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 32px;
+            margin-top: 36px;
+            padding-top: 28px;
+            border-top: 2px dashed var(--wire-border);
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat .num {
+            font-size: 28px;
+            font-weight: 800;
+            display: block;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-stat .lbl {
+            font-size: 11px;
+            color: var(--wire-text-light);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ============================================
+           LAYANAN + ESTIMASI BIAYA
+           ============================================ */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .service-card {
+            background: var(--wire-surface);
+            border: 2px solid var(--wire-border);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            transition: all 0.25s ease;
+            position: relative;
+        }
+
+        .service-card:hover {
+            border-color: var(--wire-border-dark);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            border: 2px solid var(--wire-border);
+            border-radius: var(--radius-md);
+            background: var(--wire-placeholder);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+
+        .service-card h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .service-card p {
+            font-size: 13px;
+            color: var(--wire-text-light);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .service-price {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 16px;
+            border-top: 1px dashed var(--wire-border);
+        }
+
+        .service-price .price {
+            font-weight: 800;
+            font-size: 16px;
+            letter-spacing: -0.3px;
+        }
+
+        .service-price .price small {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--wire-text-light);
+        }
+
+        .service-popular {
+            position: absolute;
+            top: -1px;
+            right: 20px;
+            background: var(--wire-text);
+            color: #fff;
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 12px;
+            border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+        }
+
+        /* ============================================
+           GALERI FASILITAS
+           ============================================ */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto auto;
+            gap: 16px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-md);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-item .placeholder-img {
+            width: 100%;
+            height: 200px;
+            border-radius: var(--radius-md);
+        }
+
+        .gallery-item.large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .gallery-item.large .placeholder-img {
+            height: 100%;
+            min-height: 416px;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(42,42,42,0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.25s ease;
+            border-radius: var(--radius-md);
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* ============================================
+           BOOKING / RESERVASI ONLINE
+           ============================================ */
+        .booking-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        .booking-info {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .booking-info h3 {
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .booking-info p {
+            color: var(--wire-text-light);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .booking-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .booking-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px;
+            border: 2px dashed var(--wire-border);
+            border-radius: var(--radius-md);
+            transition: all 0.2s;
+        }
+
+        .booking-step:hover {
+            border-color: var(--wire-border-dark);
+            background: var(--wire-surface);
+        }
+
+        .step-num {
+            width: 36px;
+            height: 36px;
+            min-width: 36px;
+            border: 2px solid var(--wire-border-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 14px;
+        }
+
+        .step-content strong {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+
+        .step-content span {
+            font-size: 12px;
+            color: var(--wire-text-light);
+        }
+
+        /* Booking Form */
+        .booking-form {
+            background: var(--wire-surface);
+            border: 2px solid var(--wire-border);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .booking-form h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .booking-form .subtitle {
+            font-size: 13px;
+            color: var(--wire-text-light);
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+            color: var(--wire-text-mid);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 11px 14px;
+            border: 2px solid var(--wire-border);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            font-family: var(--font);
+            color: var(--wire-text);
+            background: var(--wire-bg);
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--wire-border-dark);
+            box-shadow: 0 0 0 3px rgba(0,0,0,0.04);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 14px;
+            background: var(--wire-text);
+            color: #fff;
+            border: 2px solid var(--wire-text);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            font-weight: 700;
+            font-family: var(--font);
+            cursor: pointer;
+            transition: all 0.25s;
+            margin-top: 4px;
+        }
+
+        .form-submit:hover {
+            background: transparent;
+            color: var(--wire-text);
+        }
+
+        .form-note {
+            text-align: center;
+            font-size: 11px;
+            color: var(--wire-text-light);
+            margin-top: 12px;
+        }
+
+        /* ============================================
+           DOKTER / TIM
+           ============================================ */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .team-card {
+            background: var(--wire-surface);
+            border: 2px solid var(--wire-border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            text-align: center;
+            transition: all 0.25s;
+        }
+
+        .team-card:hover {
+            border-color: var(--wire-border-dark);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .team-card .placeholder-img {
+            height: 220px;
+            border-radius: 0;
+            border: none;
+            border-bottom: 2px dashed var(--wire-border);
+        }
+
+        .team-info {
+            padding: 20px 16px;
+        }
+
+        .team-info h4 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .team-info .role {
+            font-size: 12px;
+            color: var(--wire-text-light);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .team-info .schedule {
+            font-size: 11px;
+            color: var(--wire-text-mid);
+            padding: 6px 12px;
+            border: 1px dashed var(--wire-border);
+            border-radius: var(--radius-sm);
+            display: inline-block;
+        }
+
+        /* ============================================
+           PRODUK UNGGULAN
+           ============================================ */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .product-card {
+            background: var(--wire-surface);
+            border: 2px solid var(--wire-border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all 0.25s;
+        }
+
+        .product-card:hover {
+            border-color: var(--wire-border-dark);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .product-card .placeholder-img {
+            height: 180px;
+            border: none;
+            border-radius: 0;
+            border-bottom: 2px dashed var(--wire-border);
+        }
+
+        .product-body {
+            padding: 18px;
+        }
+
+        .product-body h4 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .product-body p {
+            font-size: 12px;
+            color: var(--wire-text-light);
+            line-height: 1.5;
+            margin-bottom: 14px;
+        }
+
+        .product-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 12px;
+            border-top: 1px dashed var(--wire-border);
+        }
+
+        .product-footer .price {
+            font-size: 16px;
+            font-weight: 800;
+        }
+
+        /* ============================================
+           TESTIMONI
+           ============================================ */
+        .testimonials-slider {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .testimonial-card {
+            background: var(--wire-surface);
+            border: 2px solid var(--wire-border);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            position: relative;
+        }
+
+        .testimonial-card .quote-mark {
+            font-size: 48px;
+            color: var(--wire-placeholder-dark);
+            line-height: 1;
+            margin-bottom: 8px;
+            font-weight: 800;
+        }
+
+        .testimonial-card .text {
+            font-size: 14px;
+            color: var(--wire-text-mid);
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testimonial-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 2px solid var(--wire-border);
+            background: var(--wire-placeholder);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--wire-text-light);
+        }
+
+        .author-name {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .author-role {
+            font-size: 11px;
+            color: var(--wire-text-light);
+        }
+
+        .author-stars {
+            font-size: 12px;
+            color: var(--wire-border-dark);
+            letter-spacing: 2px;
+        }
+
+        /* ============================================
+           KONTAK
+           ============================================ */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-info h3 {
+            font-size: 26px;
+            font-weight: 800;
+        }
+
+        .contact-info > p {
+            color: var(--wire-text-light);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 14px;
+            border: 2px dashed var(--wire-border);
+            border-radius: var(--radius-md);
+            transition: all 0.2s;
+        }
+
+        .contact-item:hover {
+            border-color: var(--wire-border-dark);
+            background: var(--wire-surface);
+        }
+
+        .contact-icon {
+            width: 38px;
+            height: 38px;
+            min-width: 38px;
+            border: 2px solid var(--wire-border);
+            border-radius: 50%;
+            background: var(--wire-placeholder);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+        }
+
+        .contact-detail strong {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 2px;
+        }
+
+        .contact-detail span {
+            font-size: 12px;
+            color: var(--wire-text-light);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 4px;
+        }
+
+        .social-link {
+            width: 42px;
+            height: 42px;
+            border: 2px solid var(--wire-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--wire-text-light);
+            font-size: 11px;
+            font-weight: 700;
+            background: var(--wire-surface);
+            transition: all 0.2s;
+        }
+
+        .social-link:hover {
+            border-color: var(--wire-text);
+            color: var(--wire-text);
+            transform: translateY(-2px);
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 200px;
+            margin-top: 4px;
+        }
+
+        /* Contact Form */
+        .contact-form-box {
+            background: var(--wire-surface);
+            border: 2px solid var(--wire-border);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+        }
+
+        .contact-form-box h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        /* ============================================
+           CTA BANNER
+           ============================================ */
+        .cta-banner {
+            padding: 64px 0;
+            border-bottom: 2px dashed var(--wire-border);
+            position: relative;
+        }
+
+        .cta-box {
+            background: var(--wire-surface);
+            border: 2px solid var(--wire-border);
+            border-radius: var(--radius-xl);
+            padding: 56px 48px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 200px;
+            height: 200px;
+            border: 2px dashed var(--wire-border);
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+
+        .cta-box::after {
+            content: '';
+            position: absolute;
+            bottom: -60px;
+            left: -20px;
+            width: 160px;
+            height: 160px;
+            border: 2px dashed var(--wire-border);
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+
+        .cta-box h2 {
+            font-size: 30px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .cta-box p {
+            color: var(--wire-text-light);
+            font-size: 15px;
+            margin-bottom: 28px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+        }
+
+        .cta-box .cta-buttons {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            background: var(--wire-surface);
+            border-top: 2px solid var(--wire-border);
+            padding: 56px 0 24px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            font-size: 13px;
+            color: var(--wire-text-light);
+            line-height: 1.7;
+            margin: 16px 0;
+        }
+
+        .footer-col h4 {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px dashed var(--wire-border);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a {
+            text-decoration: none;
+            color: var(--wire-text-light);
+            font-size: 13px;
+            transition: color 0.2s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--wire-text);
+        }
+
+        .footer-bottom {
+            border-top: 2px dashed var(--wire-border);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: var(--wire-text-light);
+        }
+
+        /* ============================================
+           FLOATING WHATSAPP
+           ============================================ */
+        .wa-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 22px;
+            border: 2px solid var(--wire-border-dark);
+            border-radius: 32px;
+            background: var(--wire-surface);
+            text-decoration: none;
+            color: var(--wire-text);
+            font-size: 13px;
+            font-weight: 700;
+            font-family: var(--font);
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s;
+        }
+
+        .wa-float:hover {
+            background: var(--wire-text);
+            color: #fff;
+            border-color: var(--wire-text);
+            transform: translateY(-2px);
+        }
+
+        .wa-float .wa-icon {
+            font-size: 18px;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 88px;
+            right: 34px;
+            width: 38px;
+            height: 38px;
+            border: 2px solid var(--wire-border);
+            border-radius: 50%;
+            background: var(--wire-surface);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 14px;
+            color: var(--wire-text-light);
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 90;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .back-to-top.visible { opacity: 1; }
+
+        .back-to-top:hover {
+            border-color: var(--wire-text);
+            color: var(--wire-text);
+            transform: translateY(-2px);
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 1024px) {
+            .hero .container { grid-template-columns: 1fr; gap: 40px; }
+            .hero-image { height: 300px; order: -1; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-item.large { grid-column: span 2; }
+            .gallery-item.large .placeholder-img { min-height: 280px; }
+            .team-grid { grid-template-columns: repeat(2, 1fr); }
+            .products-grid { grid-template-columns: repeat(2, 1fr); }
+            .booking-wrapper { grid-template-columns: 1fr; }
+            .testimonials-slider { grid-template-columns: 1fr 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .section { padding: 56px 0; }
+            .section-header { margin-bottom: 40px; }
+            .section-header h2 { font-size: 26px; }
+
+            .nav {
+                display: none;
+                position: absolute;
+                top: 68px;
+                left: 0;
+                right: 0;
+                background: var(--wire-surface);
+                border-bottom: 2px solid var(--wire-border);
+                flex-direction: column;
+                padding: 20px 24px;
+                gap: 14px;
+                box-shadow: var(--shadow-md);
+            }
+
+            .nav.open { display: flex; }
+            .hamburger { display: flex; }
+
+            .hero { padding: 60px 0; }
+            .hero h1 { font-size: 32px; }
+            .hero-stats { gap: 20px; flex-wrap: wrap; }
+
+            .services-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: 1fr 1fr; }
+            .gallery-item.large { grid-column: span 1; }
+            .gallery-item.large .placeholder-img { min-height: 200px; }
+            .team-grid { grid-template-columns: 1fr; }
+            .products-grid { grid-template-columns: 1fr; }
+            .testimonials-slider { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+            .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+
+            .wire-tag { display: none; }
+
+            .cta-box { padding: 40px 24px; }
+            .cta-box h2 { font-size: 24px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 28px; }
+            .hero-buttons { flex-direction: column; }
+            .hero-buttons .btn { justify-content: center; }
+            .cta-box .cta-buttons { flex-direction: column; align-items: center; }
+        }
+
+        /* ============================================
+           SCROLL ANIMATIONS
+           ============================================ */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger > * {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .stagger.visible > *:nth-child(1) { transition-delay: 0.04s; }
+        .stagger.visible > *:nth-child(2) { transition-delay: 0.08s; }
+        .stagger.visible > *:nth-child(3) { transition-delay: 0.12s; }
+        .stagger.visible > *:nth-child(4) { transition-delay: 0.16s; }
+        .stagger.visible > *:nth-child(5) { transition-delay: 0.2s; }
+        .stagger.visible > *:nth-child(6) { transition-delay: 0.24s; }
+        .stagger.visible > *:nth-child(7) { transition-delay: 0.28s; }
+        .stagger.visible > *:nth-child(8) { transition-delay: 0.32s; }
+
+        .stagger.visible > * {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============ HEADER ============ -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <div class="logo-icon">✚</div>
+                <div class="logo-name">
+                    Nama Klinik
+                    <small>Klinik &amp; Kesehatan</small>
+                </div>
+            </a>
+            <nav class="nav" id="mainNav">
+                <a href="#beranda" class="active">Beranda</a>
+                <a href="#layanan">Layanan</a>
+                <a href="#galeri">Galeri</a>
+                <a href="#dokter">Dokter</a>
+                <a href="#produk">Produk</a>
+                <a href="#kontak">Kontak</a>
+                <a href="#booking" class="nav-cta">Reservasi →</a>
+            </nav>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="beranda">
+        <span class="wire-tag">Hero Section</span>
+        <div class="container">
+            <div class="hero-content fade-up">
+                <div class="hero-badge">🏥 Paket Professional</div>
+                <h1>
+                    Layanan Kesehatan
+                    <span class="underline">Terpercaya</span>
+                    untuk Keluarga Anda
+                </h1>
+                <p>
+                    Deskripsi singkat tentang klinik/usaha Anda. Jelaskan layanan utama 
+                    dan keunggulan yang membuat Anda berbeda. Booking jadwal sekarang secara online.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#booking" class="btn btn-primary">Booking Online →</a>
+                    <a href="#layanan" class="btn btn-outline">Lihat Layanan</a>
+                    <a href="https://wa.me/628xxxxxxxxxx" class="btn btn-outline" target="_blank">💬 WhatsApp</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="num">10+</span>
+                        <span class="lbl">Tahun</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="num">5K+</span>
+                        <span class="lbl">Pasien</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="num">8</span>
+                        <span class="lbl">Dokter</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="num">15+</span>
+                        <span class="lbl">Layanan</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image placeholder-img fade-up">
+                <span>Hero Image / Foto Klinik (560×400)</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ LAYANAN + ESTIMASI BIAYA ============ -->
+    <section class="section" id="layanan">
+        <span class="wire-tag">Daftar Layanan + Estimasi Biaya</span>
+        <div class="container">
+            <div class="section-header fade-up">
+                <div class="wire-label">Layanan</div>
+                <h2>Daftar Layanan & Estimasi Biaya</h2>
+                <p>Kami menyediakan berbagai layanan kesehatan profesional dengan harga transparan.</p>
+            </div>
+            <div class="services-grid stagger">
+                <div class="service-card">
+                    <div class="service-icon">🦷</div>
+                    <h4>Konsultasi Umum</h4>
+                    <p>Pemeriksaan kesehatan umum dan konsultasi dengan dokter berpengalaman.</p>
+                    <div class="service-price">
+                        <span class="price">Rp 150.000 <small>/ sesi</small></span>
+                        <a href="#booking" class="btn btn-outline btn-sm">Booking</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-popular">Populer</div>
+                    <div class="service-icon">💉</div>
+                    <h4>Perawatan Gigi</h4>
+                    <p>Pembersihan, penambalan, dan perawatan gigi lengkap dengan alat modern.</p>
+                    <div class="service-price">
+                        <span class="price">Rp 300.000 <small>/ sesi</small></span>
+                        <a href="#booking" class="btn btn-outline btn-sm">Booking</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔬</div>
+                    <h4>Laboratorium</h4>
+                    <p>Pemeriksaan lab lengkap: darah, urine, kolesterol, gula darah, dan lainnya.</p>
+                    <div class="service-price">
+                        <span class="price">Rp 200.000 <small>/ paket</small></span>
+                        <a href="#booking" class="btn btn-outline btn-sm">Booking</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🩺</div>
+                    <h4>Medical Check-Up</h4>
+                    <p>Paket pemeriksaan menyeluruh untuk mengetahui kondisi kesehatan Anda.</p>
+                    <div class="service-price">
+                        <span class="price">Rp 500.000 <small>/ paket</small></span>
+                        <a href="#booking" class="btn btn-outline btn-sm">Booking</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💆</div>
+                    <h4>Fisioterapi</h4>
+                    <p>Terapi fisik dan rehabilitasi oleh ahli fisioterapi bersertifikat.</p>
+                    <div class="service-price">
+                        <span class="price">Rp 250.000 <small>/ sesi</small></span>
+                        <a href="#booking" class="btn btn-outline btn-sm">Booking</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👶</div>
+                    <h4>Kesehatan Anak</h4>
+                    <p>Pemeriksaan kesehatan anak, vaksinasi, dan konsultasi tumbuh kembang.</p>
+                    <div class="service-price">
+                        <span class="price">Rp 175.000 <small>/ sesi</small></span>
+                        <a href="#booking" class="btn btn-outline btn-sm">Booking</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ GALERI FASILITAS ============ -->
+    <section class="section" id="galeri">
+        <span class="wire-tag">Foto Fasilitas & Dokumentasi</span>
+        <div class="container">
+            <div class="section-header fade-up">
+                <div class="wire-label">Galeri</div>
+                <h2>Fasilitas & Ruang Perawatan</h2>
+                <p>Lihat foto fasilitas modern, ruang perawatan, dan dokumentasi klinik kami.</p>
+            </div>
+            <div class="gallery-grid stagger">
+                <div class="gallery-item large">
+                    <div class="placeholder-img"><span>Ruang Perawatan Utama</span></div>
+                    <div class="gallery-overlay">🔍 Lihat Detail</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="placeholder-img"><span>Ruang Konsultasi</span></div>
+                    <div class="gallery-overlay">🔍 Lihat Detail</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="placeholder-img"><span>Laboratorium</span></div>
+                    <div class="gallery-overlay">🔍 Lihat Detail</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="placeholder-img"><span>Ruang Tunggu</span></div>
+                    <div class="gallery-overlay">🔍 Lihat Detail</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="placeholder-img"><span>Area Resepsionis</span></div>
+                    <div class="gallery-overlay">🔍 Lihat Detail</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ BOOKING / RESERVASI ONLINE ============ -->
+    <section class="section" id="booking">
+        <span class="wire-tag">Booking Jadwal Online</span>
+        <div class="container">
+            <div class="section-header fade-up">
+                <div class="wire-label">Reservasi</div>
+                <h2>Booking Jadwal Online</h2>
+                <p>Pasien dapat melakukan reservasi secara mandiri. Pilih layanan, dokter, dan jadwal sesuai kebutuhan.</p>
+            </div>
+            <div class="booking-wrapper">
+                <!-- Info -->
+                <div class="booking-info fade-up">
+                    <h3>Cara Reservasi</h3>
+                    <p>Booking jadwal kunjungan Anda dalam 3 langkah mudah tanpa perlu telepon atau datang langsung.</p>
+                    <div class="booking-steps">
+                        <div class="booking-step">
+                            <div class="step-num">1</div>
+                            <div class="step-content">
+                                <strong>Pilih Layanan & Dokter</strong>
+                                <span>Tentukan jenis layanan dan dokter yang Anda inginkan.</span>
+                            </div>
+                        </div>
+                        <div class="booking-step">
+                            <div class="step-num">2</div>
+                            <div class="step-content">
+                                <strong>Tentukan Tanggal & Waktu</strong>
+                                <span>Pilih jadwal yang tersedia sesuai kenyamanan Anda.</span>
+                            </div>
+                        </div>
+                        <div class="booking-step">
+                            <div class="step-num">3</div>
+                            <div class="step-content">
+                                <strong>Konfirmasi via WhatsApp</strong>
+                                <span>Data reservasi dikirim otomatis ke WhatsApp untuk konfirmasi.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="placeholder-img" style="height: 180px; margin-top: 8px;">
+                        <span>Ilustrasi Booking Flow</span>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="booking-form fade-up">
+                    <h3>Form Reservasi</h3>
+                    <p class="subtitle">Isi data di bawah untuk booking jadwal kunjungan Anda.</p>
+                    <form id="bookingForm" onsubmit="handleBooking(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="b-nama">Nama Lengkap *</label>
+                                <input type="text" id="b-nama" placeholder="Nama pasien" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="b-telepon">No. WhatsApp *</label>
+                                <input type="tel" id="b-telepon" placeholder="08xx-xxxx-xxxx" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="b-layanan">Pilih Layanan *</label>
+                            <select id="b-layanan" required>
+                                <option value="">— Pilih Layanan —</option>
+                                <option value="Konsultasi Umum">Konsultasi Umum — Rp 150.000</option>
+                                <option value="Perawatan Gigi">Perawatan Gigi — Rp 300.000</option>
+                                <option value="Laboratorium">Laboratorium — Rp 200.000</option>
+                                <option value="Medical Check-Up">Medical Check-Up — Rp 500.000</option>
+                                <option value="Fisioterapi">Fisioterapi — Rp 250.000</option>
+                                <option value="Kesehatan Anak">Kesehatan Anak — Rp 175.000</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="b-dokter">Pilih Dokter</label>
+                            <select id="b-dokter">
+                                <option value="">— Pilih Dokter (opsional) —</option>
+                                <option value="dr. Nama Dokter 1">dr. Nama Dokter 1</option>
+                                <option value="dr. Nama Dokter 2">dr. Nama Dokter 2</option>
+                                <option value="drg. Nama Dokter 3">drg. Nama Dokter 3</option>
+                                <option value="dr. Nama Dokter 4">dr. Nama Dokter 4</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="b-tanggal">Tanggal Kunjungan *</label>
+                                <input type="date" id="b-tanggal" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="b-waktu">Waktu Kunjungan *</label>
+                                <select id="b-waktu" required>
+                                    <option value="">— Pilih Waktu —</option>
+                                    <option value="08:00">08:00 WIB</option>
+                                    <option value="09:00">09:00 WIB</option>
+                                    <option value="10:00">10:00 WIB</option>
+                                    <option value="11:00">11:00 WIB</option>
+                                    <option value="13:00">13:00 WIB</option>
+                                    <option value="14:00">14:00 WIB</option>
+                                    <option value="15:00">15:00 WIB</option>
+                                    <option value="16:00">16:00 WIB</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="b-catatan">Catatan Tambahan</label>
+                            <textarea id="b-catatan" placeholder="Keluhan atau catatan khusus..."></textarea>
+                        </div>
+                        <button type="submit" class="form-submit" id="bookingBtn">Kirim Reservasi via WhatsApp →</button>
+                        <p class="form-note">Reservasi akan dikirim melalui WhatsApp untuk konfirmasi.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ DOKTER / TIM ============ -->
+    <section class="section" id="dokter">
+        <span class="wire-tag">Tim Dokter</span>
+        <div class="container">
+            <div class="section-header fade-up">
+                <div class="wire-label">Tim Kami</div>
+                <h2>Dokter & Tenaga Medis</h2>
+                <p>Tim dokter berpengalaman yang siap memberikan pelayanan terbaik untuk Anda.</p>
+            </div>
+            <div class="team-grid stagger">
+                <div class="team-card">
+                    <div class="placeholder-img"><span>Foto Dokter 1</span></div>
+                    <div class="team-info">
+                        <h4>dr. Nama Dokter 1</h4>
+                        <div class="role">Dokter Umum</div>
+                        <div class="schedule">Sen–Jum, 08:00–15:00</div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="placeholder-img"><span>Foto Dokter 2</span></div>
+                    <div class="team-info">
+                        <h4>dr. Nama Dokter 2</h4>
+                        <div class="role">Spesialis Anak</div>
+                        <div class="schedule">Sen–Rab, 09:00–14:00</div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="placeholder-img"><span>Foto Dokter 3</span></div>
+                    <div class="team-info">
+                        <h4>drg. Nama Dokter 3</h4>
+                        <div class="role">Dokter Gigi</div>
+                        <div class="schedule">Sel–Sab, 10:00–16:00</div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="placeholder-img"><span>Foto Dokter 4</span></div>
+                    <div class="team-info">
+                        <h4>dr. Nama Dokter 4</h4>
+                        <div class="role">Fisioterapis</div>
+                        <div class="schedule">Rab–Sab, 08:00–14:00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PRODUK UNGGULAN ============ -->
+    <section class="section" id="produk">
+        <span class="wire-tag">Produk / Display Menarik</span>
+        <div class="container">
+            <div class="section-header fade-up">
+                <div class="wire-label">Produk</div>
+                <h2>Produk Kesehatan Unggulan</h2>
+                <p>Tampilan produk yang menarik dan mudah dilihat pelanggan.</p>
+            </div>
+            <div class="products-grid stagger">
+                <div class="product-card">
+                    <div class="placeholder-img"><span>Foto Produk 1</span></div>
+                    <div class="product-body">
+                        <h4>Nama Produk 1</h4>
+                        <p>Deskripsi singkat produk Anda. Manfaat dan keunggulan produk.</p>
+                        <div class="product-footer">
+                            <span class="price">Rp 85.000</span>
+                            <a href="#kontak" class="btn btn-outline btn-sm">Beli</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="placeholder-img"><span>Foto Produk 2</span></div>
+                    <div class="product-body">
+                        <h4>Nama Produk 2</h4>
+                        <p>Deskripsi singkat produk Anda. Manfaat dan keunggulan produk.</p>
+                        <div class="product-footer">
+                            <span class="price">Rp 120.000</span>
+                            <a href="#kontak" class="btn btn-outline btn-sm">Beli</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="placeholder-img"><span>Foto Produk 3</span></div>
+                    <div class="product-body">
+                        <h4>Nama Produk 3</h4>
+                        <p>Deskripsi singkat produk Anda. Manfaat dan keunggulan produk.</p>
+                        <div class="product-footer">
+                            <span class="price">Rp 95.000</span>
+                            <a href="#kontak" class="btn btn-outline btn-sm">Beli</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="placeholder-img"><span>Foto Produk 4</span></div>
+                    <div class="product-body">
+                        <h4>Nama Produk 4</h4>
+                        <p>Deskripsi singkat produk Anda. Manfaat dan keunggulan produk.</p>
+                        <div class="product-footer">
+                            <span class="price">Rp 150.000</span>
+                            <a href="#kontak" class="btn btn-outline btn-sm">Beli</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ TESTIMONI ============ -->
+    <section class="section" id="testimoni">
+        <span class="wire-tag">Testimoni Pelanggan</span>
+        <div class="container">
+            <div class="section-header fade-up">
+                <div class="wire-label">Testimoni</div>
+                <h2>Apa Kata Pasien Kami</h2>
+                <p>Testimoni dari pasien yang telah merasakan layanan kesehatan kami.</p>
+            </div>
+            <div class="testimonials-slider stagger">
+                <div class="testimonial-card">
+                    <div class="quote-mark">"</div>
+                    <p class="text">Pelayanan sangat ramah dan profesional. Proses booking online sangat memudahkan, tidak perlu antri lama.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">A</div>
+                        <div>
+                            <div class="author-name">Nama Pasien 1</div>
+                            <div class="author-role">Pasien Reguler</div>
+                            <div class="author-stars">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-mark">"</div>
+                    <p class="text">Fasilitas klinik sangat bersih dan modern. Dokternya menjelaskan kondisi saya dengan sangat jelas.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">B</div>
+                        <div>
+                            <div class="author-name">Nama Pasien 2</div>
+                            <div class="author-role">Pasien Baru</div>
+                            <div class="author-stars">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-mark">"</div>
+                    <p class="text">Harga terjangkau dengan kualitas layanan premium. Sudah menjadi klinik langganan keluarga kami.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">C</div>
+                        <div>
+                            <div class="author-name">Nama Pasien 3</div>
+                            <div class="author-role">Pasien Keluarga</div>
+                            <div class="author-stars">★★★★☆</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CTA BANNER ============ -->
+    <section class="cta-banner">
+        <div class="container">
+            <div class="cta-box fade-up">
+                <div class="wire-label" style="justify-content: center;">Promo</div>
+                <h2>Siap Booking Jadwal?</h2>
+                <p>Reservasi online sekarang dan dapatkan pengalaman layanan kesehatan yang nyaman dan cepat.</p>
+                <div class="cta-buttons">
+                    <a href="#booking" class="btn btn-primary">Booking Sekarang →</a>
+                    <a href="https://wa.me/628xxxxxxxxxx" class="btn btn-outline" target="_blank">💬 Chat WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ KONTAK ============ -->
+    <section class="section" id="kontak">
+        <span class="wire-tag">Kontak & Formulir</span>
+        <div class="container">
+            <div class="section-header fade-up">
+                <div class="wire-label">Kontak</div>
+                <h2>Hubungi Kami</h2>
+                <p>Ada pertanyaan? Hubungi kami melalui formulir di bawah atau media sosial.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info fade-up">
+                    <h3>Informasi Kontak</h3>
+                    <p>Tim kami siap membantu Anda. Jangan ragu untuk menghubungi kapan saja.</p>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-detail">
+                            <strong>Alamat Klinik</strong>
+                            <span>Jl. Contoh No. 123, Kota, Provinsi 12345</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-detail">
+                            <strong>WhatsApp</strong>
+                            <span>+62 812-3456-7890</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉</div>
+                        <div class="contact-detail">
+                            <strong>Email</strong>
+                            <span>info@namaklinik.com</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🕐</div>
+                        <div class="contact-detail">
+                            <strong>Jam Operasional</strong>
+                            <span>Senin–Sabtu, 08:00–17:00 WIB</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="wire-label">Sosial Media</div>
+                        <div class="social-links">
+                            <a href="#" class="social-link" title="WhatsApp">WA</a>
+                            <a href="#" class="social-link" title="Instagram">IG</a>
+                            <a href="#" class="social-link" title="TikTok">TT</a>
+                            <a href="#" class="social-link" title="Facebook">FB</a>
+                            <a href="#" class="social-link" title="YouTube">YT</a>
+                        </div>
+                    </div>
+                    <div class="map-placeholder placeholder-img">
+                        <span>Google Maps Embed</span>
+                    </div>
+                </div>
+
+                <div class="contact-form-box fade-up">
+                    <h3>Kirim Pesan</h3>
+                    <form id="contactForm" onsubmit="handleContact(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="c-nama">Nama *</label>
+                                <input type="text" id="c-nama" placeholder="Nama Anda" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="c-telepon">Telepon *</label>
+                                <input type="tel" id="c-telepon" placeholder="08xx-xxxx-xxxx" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="c-email">Email</label>
+                            <input type="email" id="c-email" placeholder="email@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="c-subjek">Subjek</label>
+                            <select id="c-subjek">
+                                <option value="">— Pilih Subjek —</option>
+                                <option value="info-layanan">Info Layanan</option>
+                                <option value="jadwal-dokter">Jadwal Dokter</option>
+                                <option value="kerjasama">Kerjasama</option>
+                                <option value="lainnya">Lainnya</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="c-pesan">Pesan *</label>
+                            <textarea id="c-pesan" placeholder="Tuliskan pesan Anda..." required></textarea>
+                        </div>
+                        <button type="submit" class="form-submit" id="contactBtn">Kirim Pesan →</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">✚</div>
+                        <div class="logo-name">
+                            Nama Klinik
+                            <small>Klinik &amp; Kesehatan</small>
+                        </div>
+                    </a>
+                    <p>Deskripsi singkat klinik Anda. Layanan kesehatan terpercaya untuk keluarga Indonesia.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">WA</a>
+                        <a href="#" class="social-link">IG</a>
+                        <a href="#" class="social-link">TT</a>
+                        <a href="#" class="social-link">FB</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigasi</h4>
+                    <ul>
+                        <li><a href="#beranda">Beranda</a></li>
+                        <li><a href="#layanan">Layanan</a></li>
+                        <li><a href="#galeri">Galeri</a></li>
+                        <li><a href="#dokter">Dokter</a></li>
+                        <li><a href="#kontak">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Layanan</h4>
+                    <ul>
+                        <li><a href="#">Konsultasi Umum</a></li>
+                        <li><a href="#">Perawatan Gigi</a></li>
+                        <li><a href="#">Laboratorium</a></li>
+                        <li><a href="#">Medical Check-Up</a></li>
+                        <li><a href="#">Fisioterapi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Informasi</h4>
+                    <ul>
+                        <li><a href="#booking">Booking Online</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="#">Syarat & Ketentuan</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 Nama Klinik. All rights reserved.</span>
+                <span>Paket Professional — Website + Reservasi Online</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============ FLOATING WHATSAPP ============ -->
+    <a href="https://wa.me/628xxxxxxxxxx?text=Halo,%20saya%20ingin%20konsultasi"
+       class="wa-float"
+       target="_blank"
+       rel="noopener"
+       id="waFloat">
+        <span class="wa-icon">💬</span>
+        <span>WhatsApp</span>
+    </a>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" title="Kembali ke atas">↑</button>
+
+    <!-- ============ JAVASCRIPT ============ -->
+    <script>
+        // ---- Mobile Nav ----
+        const hamburger = document.getElementById('hamburger');
+        const mainNav = document.getElementById('mainNav');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mainNav.classList.toggle('open');
+        });
+
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mainNav.classList.remove('open');
+            });
+        });
+
+        // ---- Active Nav on Scroll ----
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav a[href^="#"]');
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY + 100;
+            sections.forEach(section => {
+                const top = section.offsetTop;
+                const height = section.offsetHeight;
+                const id = section.getAttribute('id');
+                if (scrollY >= top && scrollY < top + height) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+
+        // ---- Scroll Animations ----
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { rootMargin: '0px 0px -50px 0px', threshold: 0.1 });
+
+        document.querySelectorAll('.fade-up, .stagger').forEach(el => observer.observe(el));
+
+        // ---- Back to Top ----
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTop.classList.toggle('visible', window.scrollY > 400);
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ---- Smooth Scroll ----
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const id = this.getAttribute('href');
+                if (id === '#') return;
+                const target = document.querySelector(id);
+                if (target) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: target.getBoundingClientRect().top + window.scrollY - 72,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ---- Set min booking date to today ----
+        const dateInput = document.getElementById('b-tanggal');
+        if (dateInput) {
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.setAttribute('min', today);
+        }
+
+        // ---- Booking Form → WhatsApp ----
+        function handleBooking(e) {
+            e.preventDefault();
+            const btn = document.getElementById('bookingBtn');
+            const original = btn.textContent;
+            btn.textContent = 'Mengirim...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                const nama = document.getElementById('b-nama').value;
+                const telepon = document.getElementById('b-telepon').value;
+                const layanan = document.getElementById('b-layanan').value;
+                const dokter = document.getElementById('b-dokter').value || 'Bebas';
+                const tanggal = document.getElementById('b-tanggal').value;
+                const waktu = document.getElementById('b-waktu').value;
+                const catatan = document.getElementById('b-catatan').value || '-';
+
+                const msg = encodeURIComponent(
+                    `📋 *RESERVASI ONLINE*\n\n` +
+                    `Nama: ${nama}\n` +
+                    `Telepon: ${telepon}\n` +
+                    `Layanan: ${layanan}\n` +
+                    `Dokter: ${dokter}\n` +
+                    `Tanggal: ${tanggal}\n` +
+                    `Waktu: ${waktu} WIB\n` +
+                    `Catatan: ${catatan}\n\n` +
+                    `Mohon konfirmasi reservasi saya. Terima kasih.`
+                );
+
+                window.open(`https://wa.me/628xxxxxxxxxx?text=${msg}`, '_blank');
+
+                btn.textContent = '✓ Terkirim!';
+                setTimeout(() => {
+                    btn.textContent = original;
+                    btn.disabled = false;
+                    e.target.reset();
+                }, 2000);
+            }, 600);
+        }
+
+        // ---- Contact Form → WhatsApp ----
+        function handleContact(e) {
+            e.preventDefault();
+            const btn = document.getElementById('contactBtn');
+            const original = btn.textContent;
+            btn.textContent = 'Mengirim...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                const nama = document.getElementById('c-nama').value;
+                const telepon = document.getElementById('c-telepon').value;
+                const email = document.getElementById('c-email').value || '-';
+                const subjek = document.getElementById('c-subjek').value || '-';
+                const pesan = document.getElementById('c-pesan').value;
+
+                const msg = encodeURIComponent(
+                    `📩 *PESAN DARI WEBSITE*\n\n` +
+                    `Nama: ${nama}\n` +
+                    `Telepon: ${telepon}\n` +
+                    `Email: ${email}\n` +
+                    `Subjek: ${subjek}\n` +
+                    `Pesan: ${pesan}`
+                );
+
+                window.open(`https://wa.me/628xxxxxxxxxx?text=${msg}`, '_blank');
+
+                btn.textContent = '✓ Terkirim!';
+                setTimeout(() => {
+                    btn.textContent = original;
+                    btn.disabled = false;
+                    e.target.reset();
+                }, 2000);
+            }, 600);
+        }
+    </script>
+
+</body>
+</html>
